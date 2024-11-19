@@ -1,1 +1,1 @@
-# Meat APP in Angular and Qwik
+# Meat APP in Angular
