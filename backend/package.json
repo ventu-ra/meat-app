@@ -1,0 +1,24 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "api-config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "8.9.4",
+    "@types/express": "4.0.37",
+    "@types/jsonwebtoken": "7.2.3",
+    "ts-node": "5.0.1",
+    "tslint": "5.9.1",
+    "json-server": "0.12.0",
+    "jsonwebtoken": "7.4.1",
+    "typescript": "2.9.2",
+    "webdriver-manager": "12.0.6"
+  }
+}
