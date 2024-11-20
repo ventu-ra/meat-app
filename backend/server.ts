@@ -25,11 +25,11 @@ server.use("/orders", handleAuthorization);
 // Use default router
 server.use(router);
 
-const options = {
-  cert: fs.readFileSync("./keys/cert.pem"),
-  key: fs.readFileSync("./keys/key.pem"),
-};
+// const options = {
+//   cert: fs.readFileSync("./keys/cert.pem"),
+//   key: fs.readFileSync("./keys/key.pem"),
+// };
 
-https.createServer(options, server).listen(PORT, () => {
+https.createServer({}, server).listen(PORT, () => {
   console.log(`JSON Server is running https://localhost:${PORT}`);
 });
