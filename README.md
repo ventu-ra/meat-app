@@ -35,4 +35,4 @@ O objetivo principal deste projeto é:
 
 		docker run -p 4200:4200 -p 3000:3000 meat-app
 
-- **Frontend:** [http://localhost:3000](http://localhost:3000)
+- **Frontend:** [Demo](https://ventu-ra.github.io/meat-app)
