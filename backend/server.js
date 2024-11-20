@@ -1,5 +1,10 @@
 "use strict";
 exports.__esModule = true;
+
+const express = require('express')
+
+const app = express()
+
 var authz_1 = require("./authz");
 var auth_1 = require("./auth");
 var jsonServer = require("json-server");
@@ -23,6 +28,17 @@ server.use(router);
 //     cert: fs.readFileSync("./keys/cert.pem"),
 //     key: fs.readFileSync("./keys/key.pem")
 // };
-https.createServer({}, server).listen(PORT, function () {
-    console.log("JSON Server is running https://localhost:" + PORT);
-});
+// https.createServer({}, server).listen(PORT, function () {
+//     console.log("JSON Server is running https://localhost:" + PORT);
+// });
+
+
+app.use(middleware)
+app.use(jsonServer.bodyParser);
+app.post("/login", auth_1.handleAuthentication);
+app.use("/orders", authz_1.handleAuthorization);
+app.use(router);
+
+app.listen(PORT, () => {
+    console.log(`JSON Server is running http://localhost:${PORT}`)
+})
