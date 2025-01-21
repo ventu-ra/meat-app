@@ -29,10 +29,10 @@ O objetivo principal deste projeto é:
 
 2. 🐳 Construa a imagem Docker:
 
-		docker build -t meat-app .
+		docker compose build
 
 3. Execute o contêiner:
 
-		docker run -p 4200:4200 -p 3000:3000 meat-app
+		docker compose up -d
 
 - **Frontend:** [Demo](https://ventu-ra.github.io/meat-app)

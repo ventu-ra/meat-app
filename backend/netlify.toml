@@ -1,0 +1,6 @@
+[build]
+command = "yarn start"
+publish = "dist"
+
+[functions]
+directory = "backend/functions"

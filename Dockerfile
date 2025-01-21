@@ -1,29 +1,29 @@
-# Etapa 1: Construção da aplicação (builder)
+# Etapa 1: Construção da aplicação Angular
 FROM node:16.14.0 AS builder
 
-# Definir o diretório de trabalho dentro do container
+# Diretório de trabalho
 WORKDIR /app
 
-# Copiar o arquivo package.json e yarn.lock (se existir) para o diretório de trabalho
+# Copiar dependências
 COPY package.json yarn.lock ./
 
-# Instalar as dependências do projeto com Yarn
+# Instalar dependências
 RUN yarn install
 
-# Copiar o código-fonte da aplicação para o container
+# Copiar todo o código para o container
 COPY . .
 
-# Build da aplicação Angular com Yarn
-RUN npx ng build --prod
+# Construir o projeto Angular
+RUN yarn run ng build --prod
 
-# Etapa 2: Servindo a aplicação (serve)
+# Etapa 2: Servir os arquivos com Nginx
 FROM nginx:alpine
 
-# Copiar os arquivos de build para o diretório de arquivos estáticos do Nginx
+# Copiar arquivos de build para o diretório de arquivos estáticos do Nginx
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Expor a porta 80 para acessar o conteúdo
-EXPOSE 3000
+# Expor a porta 80
+EXPOSE 80
 
-# Comando para iniciar o servidor Nginx
+# Comando de inicialização
 CMD ["nginx", "-g", "daemon off;"]

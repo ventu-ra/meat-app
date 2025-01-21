@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: meat_frontend
+    ports:
+      - "3000:80" # Mapeando a porta 80 do container para 3000 no host
+    networks:
+      - meat_network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: meat_backend
+    ports:
+      - "3001:3001"
+    networks:
+      - meat_network
+
+networks:
+  meat_network:
+    driver: bridge
