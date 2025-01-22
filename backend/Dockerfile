@@ -1,5 +1,5 @@
 # Etapa 1: Construção da aplicação (builder)
-FROM node:20 AS builder
+FROM node:alpine AS builder
 
 # Definir o diretório de trabalho dentro do container
 WORKDIR /backend
