@@ -8,7 +8,7 @@
     "lib": ["es2016", "dom"],
     "outDir": "../out-tsc/app",
     "target": "es5",
-    "module": "esnext",
+    "module": "es2020",
     "baseUrl": "",
     "types": [],
     "typeRoots": ["../node_modules/@types"]
