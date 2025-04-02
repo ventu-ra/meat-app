@@ -1,18 +1,10 @@
 import { LoginService } from "./login/login.service";
 import { Injectable } from "@angular/core";
-import {
-  ActivatedRoute,
-  ActivatedRouteSnapshot,
-  CanActivate,
-  CanLoad,
-  Route,
-  RouterState,
-  RouterStateSnapshot,
-} from "@angular/router";
+import { ActivatedRoute, ActivatedRouteSnapshot, Route, RouterState, RouterStateSnapshot } from "@angular/router";
 import { Observable } from "rxjs";
 
 @Injectable()
-export class LoggedInGuard implements CanLoad, CanActivate {
+export class LoggedInGuard  {
   constructor(private loginService: LoginService) {}
 
   checkAuthentication(path: string): boolean {
