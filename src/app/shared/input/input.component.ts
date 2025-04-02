@@ -17,15 +17,16 @@ export class InputComponent implements OnInit, AfterContentInit {
   @Input() showTip: boolean = true;
   input: any;
 
-  @ContentChild(NgModel) model: NgModel;
-  @ContentChild(FormControlName) control: FormControlName;
+  @ContentChild(NgModel, { static: false }) model: NgModel;
+  @ContentChild(FormControlName, { static: false }) control: FormControlName;
 
   constructor() {}
+
   ngOnInit() {}
 
   ngAfterContentInit(): void {
     this.input = this.model || this.control;
-    if (this.input === undefined) {
+    if (!this.input) {
       throw new Error(
         "Esse componente precisa ser usado com uma diretiva ngModel ou formControlName"
       );
@@ -33,10 +34,16 @@ export class InputComponent implements OnInit, AfterContentInit {
   }
 
   hasSuccess(): boolean {
-    return this.input.valid && (this.input.dirty || this.input.touched);
+    return (
+      this.input && this.input.valid && (this.input.dirty || this.input.touched)
+    );
   }
 
   hasError(): boolean {
-    return this.input.invalid && (this.input.dirty || this.input.touched);
+    return (
+      this.input &&
+      this.input.invalid &&
+      (this.input.dirty || this.input.touched)
+    );
   }
 }
