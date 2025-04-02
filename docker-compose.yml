@@ -1,13 +1,13 @@
 services:
-  frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: meat_frontend
-    ports:
-      - "3000:80" # Mapeando a porta 80 do container para 3000 no host
-    networks:
-      - meat_network
+#   frontend:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     container_name: meat_frontend
+#     ports:
+#       - "3000:80" # Mapeando a porta 80 do container para 3000 no host
+#     networks:
+#       - meat_network
 
   backend:
     build:
