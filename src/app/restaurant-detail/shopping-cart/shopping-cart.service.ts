@@ -1,7 +1,8 @@
 import { NotificationService } from "./../../shared/messages/notification.service";
-import { Injectable, Output } from "@angular/core";
+import { Injectable, Output, Directive } from "@angular/core";
 import { MenuItem } from "../menu-item/menu-item.model";
 import { CartItem } from "./cart-item.model";
+@Directive()
 @Injectable()
 export class ShoppingCartServices {
   items: CartItem[] = [];

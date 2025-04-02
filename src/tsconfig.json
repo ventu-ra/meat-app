@@ -8,11 +8,17 @@
     "lib": ["es2016", "dom"],
     "outDir": "../out-tsc/app",
     "target": "es5",
-    "module": "es2015",
+    "module": "esnext",
     "baseUrl": "",
     "types": [],
     "typeRoots": ["../node_modules/@types"]
   },
   "angularCompilerOptions": { "preserveWhitespaces": false },
-  "exclude": ["test.ts", "**/*.spec.ts"]
+  "files": [
+    "main.ts",
+    "polyfills.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts"
+  ]
 }
