@@ -4,15 +4,22 @@
     "declaration": false,
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "lib": ["es2016", "dom"],
+    "lib": [
+      "es2016",
+      "dom"
+    ],
     "outDir": "../out-tsc/app",
-    "target": "es5",
-    "module": "es2020",
+    "target": "ES2020",
+    "module": "ESNext",
     "baseUrl": "",
     "types": [],
-    "typeRoots": ["../node_modules/@types"]
+    "typeRoots": [
+      "../node_modules/@types"
+    ]
   },
-  "angularCompilerOptions": { "preserveWhitespaces": false },
+  "angularCompilerOptions": {
+    "preserveWhitespaces": false
+  },
   "files": [
     "main.ts",
     "polyfills.ts"
