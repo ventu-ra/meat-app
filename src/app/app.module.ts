@@ -5,7 +5,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { LOCALE_ID, NgModule, ErrorHandler } from "@angular/core";
-import { HttpClientModule } from "@angular/common/http";
+import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import { PreloadAllModules, RouterModule } from "@angular/router";
 
 import { AppComponent } from "./app.component";
@@ -36,37 +36,30 @@ registerLocaleData(locatePt, "pt");
 import { LoginComponent } from "./security/login/login.component";
 import { UserDetailComponent } from "./header/user-detail/user-detail.component";
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    HomeComponent,
-    RestaurantsComponent,
-    RestaurantComponent,
-    RestaurantDetailComponent,
-    MenuComponent,
-    ShoppingCartComponent,
-    MenuItemComponent,
-    ReviewsComponent,
-    OrderSummaryComponent,
-    NotFoundComponent,
-    LoginComponent,
-    UserDetailComponent,
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    SharedModule.forRoot(),
-    // CoreModule,
-    HttpClientModule,
-    //configuração das rotas
-    RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules }),
-  ],
-  providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
-    { provide: LOCALE_ID, useValue: "pt-BR" },
-    { provide: ErrorHandler, useClass: ApplicationErrorHandler },
-  ],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [
+        AppComponent,
+        HeaderComponent,
+        HomeComponent,
+        RestaurantsComponent,
+        RestaurantComponent,
+        RestaurantDetailComponent,
+        MenuComponent,
+        ShoppingCartComponent,
+        MenuItemComponent,
+        ReviewsComponent,
+        OrderSummaryComponent,
+        NotFoundComponent,
+        LoginComponent,
+        UserDetailComponent,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        BrowserAnimationsModule,
+        SharedModule.forRoot(),
+        //configuração das rotas
+        RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules })], providers: [
+        { provide: LocationStrategy, useClass: HashLocationStrategy },
+        { provide: LOCALE_ID, useValue: "pt-BR" },
+        { provide: ErrorHandler, useClass: ApplicationErrorHandler },
+        provideHttpClient(withInterceptorsFromDi()),
+    ] })
 export class AppModule {}
