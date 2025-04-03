@@ -1,19 +1,22 @@
-# Etapa 1: Construção da aplicação Angular usando Bun
-FROM oven/bun:alpine AS builder
+# Etapa 1: Construção da aplicação Angular usando PNPM
+FROM node:lts-alpine AS builder
 
 WORKDIR /app
 
-# Copiar apenas os arquivos essenciais para instalar dependências
-COPY package.json bun.lock ./
+# Instalar PNPM globalmente
+RUN corepack enable && corepack prepare pnpm@latest --activate
 
-# Instalar dependências com Bun
-RUN bun install --frozen-lockfile --no-save
+# Copiar apenas os arquivos essenciais para instalar dependências
+COPY package.json pnpm-lock.yaml ./
+
+# Instalar dependências sem salvar e com cache otimizado
+RUN pnpm install --frozen-lockfile
 
 # Copiar o restante do código
 COPY . .
 
 # Construir o projeto Angular
-RUN bun run ng build --configuration=production
+RUN pnpm run ng build --configuration=production
 
 # Etapa 2: Criar imagem final enxuta com Nginx
 FROM nginx:alpine
