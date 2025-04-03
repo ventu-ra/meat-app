@@ -25,7 +25,6 @@
     "@angular/router": "18.2.13",
     "admin-lte": "2.3.11",
     "ajv": "^8.17.1",
-    "core-js": "2.5.4",
     "font-awesome": "4.7.0",
     "intl": "1.2.5",
     "jquery": "3.5.0",

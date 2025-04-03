@@ -1,21 +1,26 @@
 # Etapa 1: Construção da aplicação (builder)
-FROM node:alpine AS builder
+FROM oven/bun:alpine AS builder
 
-# Definir o diretório de trabalho dentro do container
 WORKDIR /backend
 
-# Copiar o arquivo package.json e lock
-COPY package*.json ./
+# Copiar apenas os arquivos essenciais para instalar dependências
+COPY package.json bun.lockb ./
 
-# Instalar as dependências do projeto com Yarn
-RUN yarn install
+# Instalar apenas dependências de produção
+RUN bun install --frozen-lockfile --no-save
 
-# Copiar o código-fonte da aplicação para o container
+# Copiar todo o código-fonte
 COPY . .
 
+# Etapa 2: Criar imagem final enxuta
+FROM oven/bun:alpine
 
-# Expor a porta 80 para acessar o conteúdo
+WORKDIR /backend
+
+# Copiar apenas os arquivos necessários do builder
+COPY --from=builder /backend/node_modules ./node_modules
+COPY --from=builder /backend/package.json ./package.json
+COPY --from=builder /backend/. ./
 EXPOSE 3001
 
-# Comando para iniciar o servidor
-CMD ["yarn", "start"]
+ENTRYPOINT ["bun", "run", "start"]

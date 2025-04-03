@@ -1,29 +1,28 @@
-# Etapa 1: Construção da aplicação Angular
-FROM node:16.14.0 AS builder
+# Etapa 1: Construção da aplicação Angular usando Bun
+FROM oven/bun:alpine AS builder
 
-# Diretório de trabalho
 WORKDIR /app
 
-# Copiar dependências
-COPY package.json yarn.lock ./
+# Copiar apenas os arquivos essenciais para instalar dependências
+COPY package.json bun.lock ./
 
-# Instalar dependências
-RUN yarn install
+# Instalar dependências com Bun
+RUN bun install --frozen-lockfile --no-save
 
-# Copiar todo o código para o container
+# Copiar o restante do código
 COPY . .
 
 # Construir o projeto Angular
-RUN yarn run ng build --prod
+RUN bun run ng build --configuration=production
 
-# Etapa 2: Servir os arquivos com Nginx
+# Etapa 2: Criar imagem final enxuta com Nginx
 FROM nginx:alpine
 
 # Copiar arquivos de build para o diretório de arquivos estáticos do Nginx
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /app/dist/browser /usr/share/nginx/html
 
 # Expor a porta 80
 EXPOSE 80
 
 # Comando de inicialização
-CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
