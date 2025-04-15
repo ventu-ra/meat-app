@@ -13,4 +13,10 @@ export class RestaurantService {
 
     return (await data.json()) ?? [];
   }
+
+  async getRestaurantById(id: number): Promise<Restaurant | undefined> {
+    console.log('id :>> ', id);
+    const data = await fetch(`${this.url}/${id}`);
+    return (await data.json()) ?? {};
+  }
 }
