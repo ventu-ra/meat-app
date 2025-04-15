@@ -1,0 +1,28 @@
+<div class="container px-4 px-lg-5 mt-5">
+  <div class="row gx-4 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-start">
+    <div class="col mb-4 " *ngFor="let restaurant of restaurantList">
+      <div class="card card-body h-100 ">
+        <span class="icon-link">
+          <i class="bi-star-fill"></i>{{restaurant.rating}}
+        </span>
+        <!-- Product image-->
+        <img class="card-img w-50 justify-content-center" [src]="restaurant.imagePath" alt="{{restaurant.name}}" />
+        <!-- Product details-->
+        <div class="card-body p-4">
+          <div class="text-center">
+            <!-- Product name-->
+            <h5 class="card-title fw-bolder">{{restaurant.name}}</h5>
+            <!-- Product price-->
+            <p class="card-text">{{restaurant.category}}</p>
+
+            <p class="card-text">{{restaurant.deliveryEstimate}}</p>
+          </div>
+        </div>
+        <!-- Product actions-->
+        <div class="card-footer p-4  bg-transparent">
+          <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Menu</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
