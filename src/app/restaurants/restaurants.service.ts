@@ -8,28 +8,35 @@ import { Restaurant } from "./restaurant/restaurant.model";
 import { MenuItem } from "app/restaurant-detail/menu-item/menu-item.model";
 @Injectable()
 export class RestaurantsService {
+  private restaurantUrl = "api/restaurants";
+  private menuUrl = "api/menu";
+  private reviewsUrl = "api/reviews"; // ✅ Adiciona isso
+
   constructor(private http: HttpClient) {}
 
   restaurants(search?: string): Observable<Restaurant[]> {
     let params: HttpParams = undefined;
-
     if (search) {
       params = new HttpParams().append("q", search);
     }
-    return this.http.get<Restaurant[]>(`${MEAT_API}/restaurants`, {
-      params: params,
-    });
-  }
-
-  restaurantById(id: string): Observable<Restaurant> {
-    return this.http.get<Restaurant>(`${MEAT_API}/restaurants/${id}`);
-  }
-
-  reviewsOfRestaurant(id: string): Observable<any> {
-    return this.http.get(`${MEAT_API}/restaurants/${id}/reviews`);
+    return this.http.get<Restaurant[]>(this.restaurantUrl, { params });
   }
 
   menuOfRestaurant(id: string): Observable<MenuItem[]> {
-    return this.http.get<MenuItem[]>(`${MEAT_API}/restaurants/${id}/menu`);
+    let result = this.http.get<MenuItem[]>(`api/menu?restaurantId=${id}`);
+
+    result.subscribe((data) => {
+      console.log("Menu items:", data); // <-- aqui você vê o array real
+    });
+
+    return result;
+  }
+
+  restaurantById(id: string): Observable<Restaurant> {
+    return this.http.get<Restaurant>(`${this.restaurantUrl}/${id}`);
+  }
+
+  reviewsOfRestaurant(id: string): Observable<any> {
+    return this.http.get(`${this.reviewsUrl}?restaurantId=${id}`); // ✅ Aqui usamos o novo reviewsUrl
   }
 }

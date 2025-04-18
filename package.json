@@ -24,7 +24,13 @@
     "@angular/platform-server": "18.2.13",
     "@angular/router": "18.2.13",
     "admin-lte": "2.3.11",
+<<<<<<< HEAD
     "ajv": "^8.17.1",
+=======
+    "ajv": "6.0.0",
+    "angular-in-memory-web-api": "0.11.0",
+    "core-js": "2.5.4",
+>>>>>>> v1.0.1
     "font-awesome": "4.7.0",
     "intl": "1.2.5",
     "jquery": "3.5.0",

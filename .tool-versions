@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 nodejs lts
+=======
+nodejs 16.13.2
+yarn 1
+>>>>>>> v1.0.1
