@@ -27,6 +27,7 @@ import { NotFoundComponent } from "./not-found/not-found.component";
 import {
   HashLocationStrategy,
   LocationStrategy,
+  PathLocationStrategy,
   registerLocaleData,
 } from "@angular/common";
 import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
@@ -66,7 +67,7 @@ import { UserDetailComponent } from "./header/user-detail/user-detail.component"
     RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules }),
   ],
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: LocationStrategy, useClass: PathLocationStrategy },
     { provide: LOCALE_ID, useValue: "pt-BR" },
     { provide: ErrorHandler, useClass: ApplicationErrorHandler },
   ],

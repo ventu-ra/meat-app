@@ -96,12 +96,14 @@
       </div>
     </form>
 
-    <div class="row">
-      <div class="col-xs-12">
-        <button class="btn btn-success pull-right" (click)="checkOrder(orderForm.value)"
-          [disabled]="!orderForm.valid || cartItems().length === 0">
-          <i class="fa fa-credit-card"></i> Concluir Pedido
+    <div class="box-footer">
+      <div class="pull-right">
+        <button type="button" class="lead btn btn-danger" [routerLink]="['/']" style="margin-right: 0.5rem;">
+          <i class="fa "></i> Cancelar
         </button>
+        <button (click)="checkOrder(orderForm.value)" [disabled]="!orderForm.valid || cartItems().length === 0"
+          class="btn btn-success lead"><i class="fa fa-credit-card"></i> Fechar
+          Pedido</button>
       </div>
     </div>
   </section>
