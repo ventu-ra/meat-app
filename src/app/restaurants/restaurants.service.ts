@@ -9,8 +9,7 @@ import { MenuItem } from "app/restaurant-detail/menu-item/menu-item.model";
 @Injectable()
 export class RestaurantsService {
   private restaurantUrl = "api/restaurants";
-  private reviewsUrl = "api/reviews"; // ✅ Adiciona isso
-
+  private reviewsUrl = "api/reviews";
   constructor(private http: HttpClient) {}
 
   restaurants(search?: string): Observable<Restaurant[]> {
