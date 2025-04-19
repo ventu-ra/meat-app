@@ -5,7 +5,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { LOCALE_ID, NgModule, ErrorHandler } from "@angular/core";
-import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
 import { PreloadAllModules, RouterModule } from "@angular/router";
 
 import { AppComponent } from "./app.component";

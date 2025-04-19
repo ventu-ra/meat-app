@@ -14,15 +14,13 @@ import {
   AbstractControl,
   FormControl,
 } from "@angular/forms";
-import { LoginService } from "app/security/login/login.service";
 
 @Component({
   selector: "mt-order",
   templateUrl: "./order.component.html",
 })
 export class OrderComponent implements OnInit {
-  emailPattern =
-    /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+  emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
   numberPattern = /^[0-9]*$/;
 
   orderForm: FormGroup;
@@ -40,25 +38,24 @@ export class OrderComponent implements OnInit {
   constructor(
     private orderService: OrderService,
     private router: Router,
-    private formBuilder: FormBuilder,
-    private loginService: LoginService
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit() {
     this.orderForm = this.formBuilder.group(
       {
-        name: this.formBuilder.control(this.loginService.user.name, [
+        name: this.formBuilder.control("", [
           Validators.required,
           Validators.minLength(5),
         ]),
-        email: this.formBuilder.control(this.loginService.user.email, [
+        email: this.formBuilder.control("", [
           Validators.required,
           Validators.pattern(this.emailPattern),
         ]),
-        emailConfirmation: this.formBuilder.control(
-          this.loginService.user.email,
-          [Validators.required, Validators.pattern(this.emailPattern)]
-        ),
+        emailConfirmation: this.formBuilder.control("", [
+          Validators.required,
+          Validators.pattern(this.emailPattern),
+        ]),
         address: this.formBuilder.control("", [
           Validators.required,
           Validators.minLength(5),

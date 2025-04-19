@@ -1,8 +1,12 @@
 import { OrderComponent } from "./order.component";
-import { ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
+import {
+  ActivatedRouteSnapshot,
+  CanDeactivate,
+  RouterStateSnapshot,
+} from "@angular/router";
 import { Observable } from "rxjs";
 
-export class LeaveOrderGuard  {
+export class LeaveOrderGuard implements CanDeactivate<OrderComponent> {
   canDeactivate(
     orderComponent: OrderComponent,
     activatedRoute: ActivatedRouteSnapshot,
