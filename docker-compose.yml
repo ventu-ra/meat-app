@@ -9,15 +9,15 @@ services:
     networks:
       - meat_network
 
-  backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    container_name: meat_backend
-    ports:
-      - "3001:3001"
-    networks:
-      - meat_network
+  # backend:
+  #   build:
+  #     context: ./backend
+  #     dockerfile: Dockerfile
+  #   container_name: meat_backend
+  #   ports:
+  #     - "3001:3001"
+  #   networks:
+  #     - meat_network
 
 networks:
   meat_network:
