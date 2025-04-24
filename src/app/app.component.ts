@@ -5,15 +5,13 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, RouterModule, NavBarComponent],
-  template: ` <main class="main">
-      <header>
-        <app-nav-bar></app-nav-bar>
-      </header>
-      <section>
-        <router-outlet />
-      </section>
+  template: ` <header>
+      <app-nav-bar></app-nav-bar>
+    </header>
+    <main class="main container-fluid pt-5">
+      <router-outlet />
     </main>
-    <footer class="lead py-5">
+    <footer class="py-5 text-body-secondary card-footer ">
       <div class="container">
         <p class="m-0 text-center ">Copyright &copy; Meat 2025</p>
       </div>

@@ -3,6 +3,7 @@ import { Component, inject, Input } from '@angular/core';
 import { Restaurant } from '../interfaces/restaurant';
 import { RestaurantService } from '../services/restaurant.service';
 import { RouterModule } from '@angular/router';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-restaurants',

@@ -18,6 +18,7 @@ export class MenuComponent {
   menuItems: MenuItem[] = [];
 
   restaurant: Restaurant | undefined;
+  rowState = 'ready';
 
   constructor() {
     const restaurantId = String(this.route.snapshot.params['id']);
@@ -32,4 +33,24 @@ export class MenuComponent {
       this.menuItems = menuItens;
     });
   }
+
+  // items(): [] {
+  //   // return this.shoppingCartService.items;
+  // }
+
+  removeItem(itm: any) {
+    // this.shoppingCartService.removeItem(itm);
+  }
+
+  clear() {
+    // this.shoppingCartService.clear();
+  }
+
+  addItem(item: any) {
+    // this.shoppingCartService.addItem(item);
+  }
+
+  // total(): number {
+  //   // return this.shoppingCartService.total();
+  // }
 }

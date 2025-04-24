@@ -21,3 +21,8 @@ label {
   height: 300px;
   width: 300px;
 }
+
+.danger {
+  color: #dd4b39;
+  display: inline;
+}

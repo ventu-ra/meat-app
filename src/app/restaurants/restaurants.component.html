@@ -1,6 +1,7 @@
-<div class="container px-4 px-lg-5 mt-5">
+<div class="container px-4 px-lg-5 ">
   <div class="row gx-4 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-start">
-    <div class="col mb-4 " *ngFor="let restaurant of restaurantList">
+    @for (restaurant of restaurantList; track restaurant) {
+    <div class="col mb-4 ">
       <div class="card card-body h-100 ">
         <span class="icon-link">
           <i class="bi-star-fill"></i>{{restaurant.rating}}
@@ -25,5 +26,6 @@
         </div>
       </div>
     </div>
+    }
   </div>
 </div>

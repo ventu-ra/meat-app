@@ -6,23 +6,27 @@ import { MenuItem } from '../interfaces/menu-item';
   providedIn: 'root',
 })
 export class RestaurantService {
-  private url = 'http://localhost:3001/restaurants';
+  private url = 'http://localhost:3001';
   constructor() {}
 
   async getAllRestaurant(): Promise<Restaurant[]> {
-    const data = await fetch(this.url);
-
+    const data = await fetch(`${this.url}/restaurants`);
     return (await data.json()) ?? [];
   }
 
   async getRestaurantById(id: string): Promise<Restaurant | undefined> {
-    console.log('id :>> ', id);
-    const data = await fetch(`${this.url}/${id}`);
-    return (await data.json()) ?? {};
+    const data = await fetch(`${this.url}/restaurants/${id}`);
+
+    return (await data.json()) ?? [];
   }
 
   async getAllMenuItens(id: string): Promise<MenuItem[]> {
-    const data = await fetch(`${this.url}/${id}/menu`);
+    const data = await fetch(`${this.url}/menu?restaurantId=${id}`);
+    return (await data.json()) ?? [];
+  }
+
+  async getReviewsOfRestaurant(id: string): Promise<MenuItem[]> {
+    const data = await fetch(`${this.url}/reviews?restaurantId=${id}`);
     return (await data.json()) ?? [];
   }
 }
