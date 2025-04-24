@@ -1,9 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject, Output, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RestaurantService } from '../../services/restaurant.service';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MenuItem } from '../../interfaces/menu-item';
 import { CommonModule } from '@angular/common';
+import { CartItem } from './cart-item.model';
+
 @Component({
   selector: 'app-menu',
   imports: [MatTabsModule, CommonModule],
@@ -13,7 +15,10 @@ import { CommonModule } from '@angular/common';
 export class MenuComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   restaurantService = inject(RestaurantService);
-  menuItems: MenuItem[] = [];
+  menuItems: MenuItem[] = []; // Lista de itens do menu
+
+  items = signal<CartItem[]>([]); // Signal para os itens do carrinho
+  // Computed signal para calcular o total dinamicamente
 
   constructor() {
     const restaurantId = String(this.route.snapshot.params['id']);
@@ -22,23 +27,35 @@ export class MenuComponent {
     });
   }
 
-  // items(): [] {
-  //   // return this.shoppingCartService.items;
-  // }
+  // Adiciona um item ao carrinho
+  addItem(item: MenuItem) {
+    const foundItem = this.items().find(
+      (mItem) => mItem.menuItem.id === item.id
+    );
 
-  removeItem(itm: any) {
-    // this.shoppingCartService.removeItem(itm);
+    if (foundItem) {
+      this.increaseQty(foundItem);
+    } else {
+      this.items.update((items) => [...items, new CartItem(item)]);
+    }
+  }
+
+  total = computed(() =>
+    this.items().reduce((sum, item) => sum + item.value(), 0)
+  );
+
+  // Remove um item do carrinho
+  removeItem(item: CartItem) {
+    this.items.update((items) => items.filter((i) => i !== item));
+  }
+
+  // Aumenta a quantidade de um item no carrinho
+  increaseQty(item: CartItem) {
+    item.quantity++;
+    this.items.update((items) => [...items]); // Atualiza o signal para refletir a mudança
   }
 
   clear() {
-    // this.shoppingCartService.clear();
+    this.items.update(() => []);
   }
-
-  addItem(item: any) {
-    // this.shoppingCartService.addItem(item);
-  }
-
-  // total(): number {
-  //   // return this.shoppingCartService.total();
-  // }
 }

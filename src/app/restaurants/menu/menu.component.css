@@ -26,3 +26,13 @@ label {
   color: #dd4b39;
   display: inline;
 }
+
+/* a:hover {
+  outline: none;
+  color: #629df5;
+  text-decoration: none;
+} */
+
+a {
+  color: #0d6efd;
+}
