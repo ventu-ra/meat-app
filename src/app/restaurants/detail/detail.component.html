@@ -1,0 +1,28 @@
+<section class="container ">
+  <div class="w-100 ">
+    <div class=" bg-body card">
+      <section class="card-header card-group justify-content-between">
+        <div class="col">
+          <span class="icon-link"><i class="bi-house-fill"></i>{{restaurant?.name}}</span>
+        </div>
+        <div class="col-2">
+          <span class="icon-link"><i class="bi-star-fill"></i>{{restaurant?.rating}}</span>
+        </div>
+      </section>
+      <div class="card-body box-boby card-group">
+        <div class="col-auto">
+          <span><img style="width: 180px;" [src]="restaurant?.imagePath" alt="{{restaurant?.name}}"></span>
+        </div>
+        <div class="col-auto">
+          <dt class="">Categoria</dt>
+          <dd>{{restaurant?.category}}</dd>
+          <dt>Quem somos</dt>
+          <dd>{{restaurant?.about}}</dd>
+          <dt>Horários</dt>
+          <dd>{{restaurant?.hours}}</dd>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-menu />
+</section>

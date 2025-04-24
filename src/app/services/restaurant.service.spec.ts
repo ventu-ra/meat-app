@@ -13,4 +13,9 @@ describe('RestaurantService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should return a list of restaurants', async () => {
+    const restaurants = await service.getAllRestaurant();
+    expect(restaurants.length).toBeGreaterThan(0);
+  });
 });
