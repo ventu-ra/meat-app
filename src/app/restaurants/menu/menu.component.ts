@@ -16,6 +16,7 @@ export class MenuComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   restaurantService = inject(RestaurantService);
   menuItems: MenuItem[] = []; // Lista de itens do menu
+  reviewList: any[] = []; // Lista de avaliações
 
   items = signal<CartItem[]>([]); // Signal para os itens do carrinho
   // Computed signal para calcular o total dinamicamente
@@ -25,6 +26,13 @@ export class MenuComponent {
     this.restaurantService.getAllMenuItens(restaurantId).then((menuItens) => {
       this.menuItems = menuItens;
     });
+
+    this.restaurantService
+      .getReviewsOfRestaurant(restaurantId)
+      .then((reviews) => {
+        console.log('Reviews:', reviews);
+        this.reviewList = reviews;
+      });
   }
 
   // Adiciona um item ao carrinho

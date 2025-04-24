@@ -58,21 +58,37 @@
   <!-- Avaliações -->
   <mat-tab label="Avaliações">
     <div class="row">
-      <section class="col-md-12 pt-3">
-        <ol class="list-group list-group-item-action">
-          <li *ngFor="let item of menuItems" class="list-group-item d-flex justify-content-between align-items-start">
-            <span><img [src]="item.imagePath" style="width: 8rem;" alt="" srcset=""></span>
-            <div class="ms-2 me-auto">
-              <span class="lead fw-bold">{{ item.name }}</span>
-              <p class="fw-normal text-black-50 my-2">{{ item.description }}</p>
-              <p class="fw-normal text-black-50 my-4">
-                <span class="me-4">{{ item.price | currency: 'BRL': 'symbol' }}</span>
-                <a (click)="addItem(item)" class="btn"><i class="bi bi-plus-circle-fill"></i> Adicionar</a>
-              </p>
+      <div class="col-md-12" *ngFor="let review of reviewList ">
+        <div class="card">
+          <div class="card-header card-group justify-content-between">
+            <div class="row">
+              <div class="col-auto">
+                @if (review?.rating < 3) { <i class="bi bi-emoji-heart-eyes-fill"></i>
+                  }
+                  @if (review?.rating >= 3 && review?.rating < 4) { <i class="bi bi-emoji-laughing-fill"></i>
+                    } @if(review?.rating >= 4) {
+                    <i class="bi bi-emoji-heart-eyes"></i>
+                    }
+              </div>
+              <div class="col-auto">
+                <div>
+                  <span class="username">{{review?.name}}</span>
+                </div>
+                <span class="description text-black-50">{{review?.date | date:'dd/MM/yyyy'}}</span>
+              </div>
             </div>
-          </li>
-        </ol>
-      </section>
+            <div class="">
+              <span class="review-score">
+                <i class="bi bi-star-fill"></i>
+                {{review?.rating}}
+              </span>
+            </div>
+          </div>
+          <div class="card-body text-black-50 ">
+            <p>{{review?.comments}}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </mat-tab>
 </mat-tab-group>

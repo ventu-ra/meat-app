@@ -25,7 +25,7 @@ export class RestaurantService {
     return (await data.json()) ?? [];
   }
 
-  async getReviewsOfRestaurant(id: string): Promise<MenuItem[]> {
+  async getReviewsOfRestaurant(id: string): Promise<[]> {
     const data = await fetch(`${this.url}/reviews?restaurantId=${id}`);
     return (await data.json()) ?? [];
   }
