@@ -1,4 +1,17 @@
 services:
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: meat_19
+    ports:
+    - "3000:80"
+    networks:
+    - meat_network
+    depends_on:
+    - backend
+
   backend:
     image: vimagick/json-server
     command: -h 0.0.0.0 -p 3001 -w db.json
@@ -7,3 +20,9 @@ services:
     volumes:
     - ./data:/data
     restart: always
+    networks:
+    - meat_network
+
+networks:
+  meat_network:
+    driver: bridge
