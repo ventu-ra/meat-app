@@ -18,7 +18,9 @@
     ],
     "useDefineForClassFields": false
   },
-  "angularCompilerOptions": { "preserveWhitespaces": false },
+  "angularCompilerOptions": {
+    "preserveWhitespaces": false
+  },
   "files": [
     "main.ts",
     "polyfills.ts"

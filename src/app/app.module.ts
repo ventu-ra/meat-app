@@ -30,8 +30,6 @@ import {
   PathLocationStrategy,
   registerLocaleData,
 } from "@angular/common";
-import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
-import { InMemoryDataService } from "./in-memory-data.service";
 
 import locatePt from "@angular/common/locales/pt";
 
@@ -59,7 +57,6 @@ import { UserDetailComponent } from "./header/user-detail/user-detail.component"
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
     SharedModule.forRoot(),
     // CoreModule,
     HttpClientModule,
