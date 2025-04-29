@@ -64,7 +64,7 @@ import { UserDetailComponent } from "./header/user-detail/user-detail.component"
     // CoreModule,
     HttpClientModule,
     //configuração das rotas
-    RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules, relativeLinkResolution: 'legacy' }),
+    RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules }),
   ],
   providers: [
     { provide: LocationStrategy, useClass: PathLocationStrategy },
