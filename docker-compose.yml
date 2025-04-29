@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: meat_19
+    container_name: meat_19_frontend
     ports:
     - "3000:80"
     networks:
@@ -22,7 +22,7 @@ services:
     restart: always
     networks:
     - meat_network
-
+    container_name: meat_19_backend
 networks:
   meat_network:
     driver: bridge

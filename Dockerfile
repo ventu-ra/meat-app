@@ -13,7 +13,7 @@ RUN pnpm run ng build --configuration production
 
 FROM nginx:alpine
 
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /app/dist/meat-app_19/browser/ /usr/share/nginx/html
 
 EXPOSE 80
 
