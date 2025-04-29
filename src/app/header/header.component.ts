@@ -3,8 +3,9 @@ import { OrderService } from "app/order/order.service";
 import { ShoppingCartServices } from "app/restaurant-detail/shopping-cart/shopping-cart.service";
 
 @Component({
-  selector: "mt-header",
-  templateUrl: "./header.component.html",
+    selector: "mt-header",
+    templateUrl: "./header.component.html",
+    standalone: false
 })
 export class HeaderComponent implements OnInit {
   constructor(private numItems: ShoppingCartServices) {}

@@ -16,8 +16,9 @@ import {
 } from "@angular/forms";
 
 @Component({
-  selector: "mt-order",
-  templateUrl: "./order.component.html",
+    selector: "mt-order",
+    templateUrl: "./order.component.html",
+    standalone: false
 })
 export class OrderComponent implements OnInit {
   emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;

@@ -5,8 +5,9 @@ import { Component, OnInit } from "@angular/core";
 import { LoginService } from "./login.service";
 
 @Component({
-  selector: "mt-login",
-  templateUrl: "./login.component.html",
+    selector: "mt-login",
+    templateUrl: "./login.component.html",
+    standalone: false
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;

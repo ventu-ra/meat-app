@@ -4,9 +4,10 @@ import { Component, OnInit } from "@angular/core";
 import { User } from "app/security/login/user.model";
 
 @Component({
-  selector: "mt-user-detail",
-  templateUrl: "./user-detail.component.html",
-  styleUrls: ["./user-detail.component.css"],
+    selector: "mt-user-detail",
+    templateUrl: "./user-detail.component.html",
+    styleUrls: ["./user-detail.component.css"],
+    standalone: false
 })
 export class UserDetailComponent implements OnInit {
   constructor(

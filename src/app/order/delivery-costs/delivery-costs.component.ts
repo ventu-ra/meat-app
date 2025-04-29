@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from "@angular/core";
 
 @Component({
-  selector: "mt-delivery-costs",
-  templateUrl: "./delivery-costs.component.html",
+    selector: "mt-delivery-costs",
+    templateUrl: "./delivery-costs.component.html",
+    standalone: false
 })
 export class DeliveryCostsComponent implements OnInit {
   @Input() delivery: number;

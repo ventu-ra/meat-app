@@ -1,8 +1,9 @@
 import {Component, OnInit} from "@angular/core"
 
 @Component({
-  selector: 'mt-app',
-  templateUrl: 'app.component.html'
+    selector: 'mt-app',
+    templateUrl: 'app.component.html',
+    standalone: false
 })
 export class AppComponent implements OnInit {
 

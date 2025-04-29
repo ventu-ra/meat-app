@@ -20,24 +20,19 @@ import {
 } from "@angular/animations";
 import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 @Component({
-  selector: "mt-restaurants",
-  templateUrl: "./restaurants.component.html",
-  animations: [
-    trigger("toggleSearch", [
-      state(
-        "hidden",
-        style({
-          opacity: 0,
-          "max-height": "0px",
-        })
-      ),
-      state(
-        "visible",
-        style({ opacity: 1, "max-height": "70px", "margin-top": "20px" })
-      ),
-      transition("* => *", animate("250ms 0s ease-in-out")),
-    ]),
-  ],
+    selector: "mt-restaurants",
+    templateUrl: "./restaurants.component.html",
+    animations: [
+        trigger("toggleSearch", [
+            state("hidden", style({
+                opacity: 0,
+                "max-height": "0px",
+            })),
+            state("visible", style({ opacity: 1, "max-height": "70px", "margin-top": "20px" })),
+            transition("* => *", animate("250ms 0s ease-in-out")),
+        ]),
+    ],
+    standalone: false
 })
 export class RestaurantsComponent implements OnInit {
   searchBarState = "hidden";

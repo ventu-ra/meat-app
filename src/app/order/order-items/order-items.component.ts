@@ -2,8 +2,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { CartItem } from "app/restaurant-detail/shopping-cart/cart-item.model";
 
 @Component({
-  selector: "mt-order-items",
-  templateUrl: "./order-items.component.html",
+    selector: "mt-order-items",
+    templateUrl: "./order-items.component.html",
+    standalone: false
 })
 export class OrderItemsComponent implements OnInit {
   @Input() items: CartItem[];

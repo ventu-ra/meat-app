@@ -3,15 +3,16 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { RadioOption } from "./radio-option.model";
 
 @Component({
-  selector: "mt-radio",
-  templateUrl: "./radio.component.html",
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => RadioComponent),
-      multi: true,
-    },
-  ],
+    selector: "mt-radio",
+    templateUrl: "./radio.component.html",
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => RadioComponent),
+            multi: true,
+        },
+    ],
+    standalone: false
 })
 export class RadioComponent implements OnInit, ControlValueAccessor {
   @Input() options: RadioOption[];

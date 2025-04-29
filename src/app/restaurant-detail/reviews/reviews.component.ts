@@ -4,8 +4,9 @@ import { RestaurantsService } from "app/restaurants/restaurants.service";
 import { Observable } from "rxjs";
 
 @Component({
-  selector: "mt-reviews",
-  templateUrl: "./reviews.component.html",
+    selector: "mt-reviews",
+    templateUrl: "./reviews.component.html",
+    standalone: false
 })
 export class ReviewsComponent implements OnInit {
   reviews: Observable<any>;

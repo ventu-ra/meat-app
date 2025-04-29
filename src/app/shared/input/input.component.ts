@@ -8,8 +8,9 @@ import {
 import { FormControlName, NgModel } from "@angular/forms";
 
 @Component({
-  selector: "mt-input-container",
-  templateUrl: "./input.component.html",
+    selector: "mt-input-container",
+    templateUrl: "./input.component.html",
+    standalone: false
 })
 export class InputComponent implements OnInit, AfterContentInit {
   @Input() label: string;

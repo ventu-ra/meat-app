@@ -5,8 +5,9 @@ import { Observable } from "rxjs";
 import { MenuItem } from "../menu-item/menu-item.model";
 
 @Component({
-  selector: "mt-menu",
-  templateUrl: "./menu.component.html",
+    selector: "mt-menu",
+    templateUrl: "./menu.component.html",
+    standalone: false
 })
 export class MenuComponent implements OnInit {
   menu: Observable<MenuItem[]>;
