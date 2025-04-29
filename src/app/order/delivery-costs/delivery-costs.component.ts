@@ -1,19 +1,20 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, OnInit, input } from "@angular/core";
+import { CurrencyPipe } from "@angular/common";
 
 @Component({
     selector: "mt-delivery-costs",
     templateUrl: "./delivery-costs.component.html",
-    standalone: false
+    imports: [CurrencyPipe]
 })
 export class DeliveryCostsComponent implements OnInit {
-  @Input() delivery: number;
-  @Input() itemsValue: number;
+  readonly delivery = input<number>(undefined);
+  readonly itemsValue = input<number>(undefined);
 
   constructor() {}
 
   ngOnInit() {}
 
   total(): number {
-    return this.delivery + this.itemsValue;
+    return this.delivery() + this.itemsValue();
   }
 }

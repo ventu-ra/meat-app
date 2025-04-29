@@ -17,22 +17,19 @@ import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AuthInterceptor } from "app/security/auth.interceptor";
 
 @NgModule({
-  declarations: [
-    InputComponent,
-    RadioComponent,
-    RatingComponent,
-    SnackbarComponent,
-  ],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
-  exports: [
-    InputComponent,
-    RadioComponent,
-    RatingComponent,
-    CommonModule,
-    FormsModule,
-    SnackbarComponent,
-    ReactiveFormsModule,
-  ],
+    imports: [CommonModule, FormsModule, ReactiveFormsModule, InputComponent,
+        RadioComponent,
+        RatingComponent,
+        SnackbarComponent],
+    exports: [
+        InputComponent,
+        RadioComponent,
+        RatingComponent,
+        CommonModule,
+        FormsModule,
+        SnackbarComponent,
+        ReactiveFormsModule,
+    ],
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders<SharedModule> {

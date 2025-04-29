@@ -1,32 +1,33 @@
 import {
   Component,
-  Input,
   OnInit,
-  ContentChild,
   AfterContentInit,
+  input,
+  contentChild
 } from "@angular/core";
 import { FormControlName, NgModel } from "@angular/forms";
+import { NgIf } from "@angular/common";
 
 @Component({
     selector: "mt-input-container",
     templateUrl: "./input.component.html",
-    standalone: false
+    imports: [NgIf]
 })
 export class InputComponent implements OnInit, AfterContentInit {
-  @Input() label: string;
-  @Input() errorMessage: string;
-  @Input() showTip: boolean = true;
+  readonly label = input<string>(undefined);
+  readonly errorMessage = input<string>(undefined);
+  readonly showTip = input<boolean>(true);
   input: any;
 
-  @ContentChild(NgModel) model: NgModel;
-  @ContentChild(FormControlName) control: FormControlName;
+  readonly model = contentChild(NgModel);
+  readonly control = contentChild(FormControlName);
 
   constructor() {}
 
   ngOnInit() {}
 
   ngAfterContentInit(): void {
-    this.input = this.model || this.control;
+    this.input = this.model() || this.control();
     if (!this.input) {
       throw new Error(
         "Esse componente precisa ser usado com uma diretiva ngModel ou formControlName"

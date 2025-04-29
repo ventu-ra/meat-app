@@ -2,12 +2,14 @@ import { ShoppingCartServices } from "./../../restaurant-detail/shopping-cart/sh
 import { LoginService } from "./../../security/login/login.service";
 import { Component, OnInit } from "@angular/core";
 import { User } from "app/security/login/user.model";
+import { NgIf } from "@angular/common";
+import { RouterLinkActive, RouterLink } from "@angular/router";
 
 @Component({
     selector: "mt-user-detail",
     templateUrl: "./user-detail.component.html",
     styleUrls: ["./user-detail.component.css"],
-    standalone: false
+    imports: [NgIf, RouterLinkActive, RouterLink]
 })
 export class UserDetailComponent implements OnInit {
   constructor(

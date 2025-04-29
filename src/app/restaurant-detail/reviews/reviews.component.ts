@@ -2,11 +2,12 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { RestaurantsService } from "app/restaurants/restaurants.service";
 import { Observable } from "rxjs";
+import { NgFor, NgIf, AsyncPipe, DatePipe } from "@angular/common";
 
 @Component({
     selector: "mt-reviews",
     templateUrl: "./reviews.component.html",
-    standalone: false
+    imports: [NgFor, NgIf, AsyncPipe, DatePipe]
 })
 export class ReviewsComponent implements OnInit {
   reviews: Observable<any>;

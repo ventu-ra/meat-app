@@ -18,7 +18,9 @@ import {
   transition,
   animate,
 } from "@angular/animations";
-import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { NgIf, NgFor } from "@angular/common";
+import { RestaurantComponent } from "./restaurant/restaurant.component";
 @Component({
     selector: "mt-restaurants",
     templateUrl: "./restaurants.component.html",
@@ -32,7 +34,7 @@ import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
             transition("* => *", animate("250ms 0s ease-in-out")),
         ]),
     ],
-    standalone: false
+    imports: [NgIf, FormsModule, ReactiveFormsModule, NgFor, RestaurantComponent]
 })
 export class RestaurantsComponent implements OnInit {
   searchBarState = "hidden";

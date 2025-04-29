@@ -1,9 +1,10 @@
 import { Component, OnInit } from "@angular/core";
+import { RouterLink } from "@angular/router";
 
 @Component({
     selector: "mt-home",
     templateUrl: "./home.component.html",
-    standalone: false
+    imports: [RouterLink]
 })
 export class HomeComponent implements OnInit {
   constructor() {}

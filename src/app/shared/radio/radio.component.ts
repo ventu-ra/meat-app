@@ -1,6 +1,7 @@
-import { Component, forwardRef, Input, OnInit } from "@angular/core";
+import { Component, forwardRef, OnInit, input } from "@angular/core";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { RadioOption } from "./radio-option.model";
+import { NgFor } from "@angular/common";
 
 @Component({
     selector: "mt-radio",
@@ -12,10 +13,10 @@ import { RadioOption } from "./radio-option.model";
             multi: true,
         },
     ],
-    standalone: false
+    imports: [NgFor]
 })
 export class RadioComponent implements OnInit, ControlValueAccessor {
-  @Input() options: RadioOption[];
+  readonly options = input<RadioOption[]>(undefined);
 
   value: any;
 

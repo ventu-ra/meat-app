@@ -1,12 +1,13 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, RouterLinkActive, RouterLink, RouterOutlet } from "@angular/router";
 import { Restaurant } from "app/restaurants/restaurant/restaurant.model";
 import { RestaurantsService } from "app/restaurants/restaurants.service";
+import { NgIf } from "@angular/common";
 
 @Component({
     selector: "mt-restaurant-detail",
     templateUrl: "./restaurant-detail.component.html",
-    standalone: false
+    imports: [NgIf, RouterLinkActive, RouterLink, RouterOutlet]
 })
 export class RestaurantDetailComponent implements OnInit {
   restaurant: Restaurant;

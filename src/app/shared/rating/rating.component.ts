@@ -1,13 +1,14 @@
-import { Component, EventEmitter, OnInit, Output } from "@angular/core";
+import { Component, OnInit, output } from "@angular/core";
+import { NgFor } from "@angular/common";
 
 @Component({
     selector: "mt-rating",
     templateUrl: "./rating.component.html",
-    standalone: false
+    imports: [NgFor]
 })
 export class RatingComponent implements OnInit {
   
-  @Output() rated = new EventEmitter<number>();
+  readonly rated = output<number>();
 
   rates: number[] = [1, 2, 3, 4, 5];
 

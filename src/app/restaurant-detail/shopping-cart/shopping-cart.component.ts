@@ -9,6 +9,8 @@ import {
   animate,
   keyframes,
 } from "@angular/animations";
+import { NgIf, NgFor, CurrencyPipe } from "@angular/common";
+import { RouterLink } from "@angular/router";
 @Component({
     selector: "mt-shopping-cart",
     templateUrl: "./shopping-cart.component.html",
@@ -36,7 +38,7 @@ import {
             ]))),
         ]),
     ],
-    standalone: false
+    imports: [NgIf, NgFor, RouterLink, CurrencyPipe]
 })
 export class ShoppingCartComponent implements OnInit {
   constructor(private shoppingCartService: ShoppingCartServices) {}

@@ -28,8 +28,7 @@ import { timer } from "rxjs";
             transition("hidden => visible", animate("500ms 0s ease-in")),
             transition("visible => hidden", animate("500ms 0s ease-out")),
         ]),
-    ],
-    standalone: false
+    ]
 })
 export class SnackbarComponent implements OnInit {
   message: string = "Hello there!";

@@ -1,13 +1,14 @@
 import { ActivatedRoute, Router } from "@angular/router";
 import { NotificationService } from "./../../shared/messages/notification.service";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { Component, OnInit } from "@angular/core";
 import { LoginService } from "./login.service";
+import { InputComponent } from "../../shared/input/input.component";
 
 @Component({
     selector: "mt-login",
     templateUrl: "./login.component.html",
-    standalone: false
+    imports: [FormsModule, ReactiveFormsModule, InputComponent]
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;

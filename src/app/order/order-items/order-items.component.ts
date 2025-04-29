@@ -1,17 +1,19 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, OnInit, output, input } from "@angular/core";
 import { CartItem } from "app/restaurant-detail/shopping-cart/cart-item.model";
+import { NgIf, NgFor, CurrencyPipe } from "@angular/common";
+import { RouterLink } from "@angular/router";
 
 @Component({
     selector: "mt-order-items",
     templateUrl: "./order-items.component.html",
-    standalone: false
+    imports: [NgIf, RouterLink, NgFor, CurrencyPipe]
 })
 export class OrderItemsComponent implements OnInit {
-  @Input() items: CartItem[];
+  readonly items = input<CartItem[]>(undefined);
 
-  @Output() increaseQty = new EventEmitter<CartItem>();
-  @Output() decreaseQty = new EventEmitter<CartItem>();
-  @Output() remove = new EventEmitter<CartItem>();
+  readonly increaseQty = output<CartItem>();
+  readonly decreaseQty = output<CartItem>();
+  readonly remove = output<CartItem>();
 
   constructor() {}
 

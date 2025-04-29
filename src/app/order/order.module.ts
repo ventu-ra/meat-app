@@ -11,7 +11,6 @@ const ROUTES: Routes = [
 ];
 
 @NgModule({
-  declarations: [OrderComponent, OrderItemsComponent, DeliveryCostsComponent],
-  imports: [SharedModule, RouterModule.forChild(ROUTES)],
+    imports: [SharedModule, RouterModule.forChild(ROUTES), OrderComponent, OrderItemsComponent, DeliveryCostsComponent],
 })
 export class OrderModule {}

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, OnInit, input } from "@angular/core";
 import { Restaurant } from "./restaurant.model";
 
 import {
@@ -8,6 +8,7 @@ import {
   transition,
   animate,
 } from "@angular/animations";
+import { RouterLink } from "@angular/router";
 @Component({
     selector: "mt-restaurant",
     templateUrl: "./restaurant.component.html",
@@ -20,11 +21,11 @@ import {
             ]),
         ]),
     ],
-    standalone: false
+    imports: [RouterLink]
 })
 export class RestaurantComponent implements OnInit {
   restaurantState = "ready";
-  @Input() restaurant: Restaurant;
+  readonly restaurant = input<Restaurant>(undefined);
 
   constructor() {}
 

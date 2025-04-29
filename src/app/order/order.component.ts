@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 import { CartItem } from "app/restaurant-detail/shopping-cart/cart-item.model";
 import { RadioOption } from "app/shared/radio/radio-option.model";
 import { Order, OrderItem } from "./order.model";
@@ -7,18 +7,17 @@ import { OrderService } from "./order.service";
 
 import { tap } from "rxjs/operators";
 
-import {
-  FormGroup,
-  FormBuilder,
-  Validators,
-  AbstractControl,
-  FormControl,
-} from "@angular/forms";
+import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { NgIf } from "@angular/common";
+import { InputComponent } from "../shared/input/input.component";
+import { OrderItemsComponent } from "./order-items/order-items.component";
+import { RadioComponent } from "../shared/radio/radio.component";
+import { DeliveryCostsComponent } from "./delivery-costs/delivery-costs.component";
 
 @Component({
     selector: "mt-order",
     templateUrl: "./order.component.html",
-    standalone: false
+    imports: [FormsModule, ReactiveFormsModule, NgIf, InputComponent, OrderItemsComponent, RadioComponent, DeliveryCostsComponent, RouterLink]
 })
 export class OrderComponent implements OnInit {
   emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;

@@ -5,8 +5,9 @@ import {
   transition,
   trigger,
 } from "@angular/animations";
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, OnInit, input, output } from "@angular/core";
 import { MenuItem } from "./menu-item.model";
+import { CurrencyPipe } from "@angular/common";
 
 @Component({
     selector: "mt-menu-item",
@@ -20,19 +21,19 @@ import { MenuItem } from "./menu-item.model";
             ]),
         ]),
     ],
-    standalone: false
+    imports: [CurrencyPipe],
 })
 export class MenuItemComponent implements OnInit {
   menuItemState = "ready";
 
-  @Input() menuItem: MenuItem;
-  @Output() add = new EventEmitter();
+  readonly menuItem = input<MenuItem>(undefined);
+  readonly add = output();
 
   constructor() {}
 
   ngOnInit() {}
 
   emitAddEvent() {
-    this.add.emit(this.menuItem);
+    this.add.emit();
   }
 }

@@ -37,9 +37,12 @@ registerLocaleData(locatePt, "pt");
 import { LoginComponent } from "./security/login/login.component";
 import { UserDetailComponent } from "./header/user-detail/user-detail.component";
 
-@NgModule({ declarations: [
-        AppComponent,
-        HeaderComponent,
+@NgModule({ declarations: [AppComponent],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        BrowserAnimationsModule,
+        SharedModule.forRoot(),
+        //configuração das rotas
+        RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules }), HeaderComponent,
         HomeComponent,
         RestaurantsComponent,
         RestaurantComponent,
@@ -51,13 +54,7 @@ import { UserDetailComponent } from "./header/user-detail/user-detail.component"
         OrderSummaryComponent,
         NotFoundComponent,
         LoginComponent,
-        UserDetailComponent,
-    ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
-        BrowserAnimationsModule,
-        SharedModule.forRoot(),
-        //configuração das rotas
-        RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules })], providers: [
+        UserDetailComponent], providers: [
         { provide: LocationStrategy, useClass: PathLocationStrategy },
         { provide: LOCALE_ID, useValue: "pt-BR" },
         { provide: ErrorHandler, useClass: ApplicationErrorHandler },
