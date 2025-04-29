@@ -25,7 +25,7 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from "@angular/forms";
-import { NgIf, NgFor } from "@angular/common";
+import { CommonModule } from "@angular/common";
 import { RestaurantComponent } from "./restaurant/restaurant.component";
 import { ActivatedRoute } from "@angular/router";
 @Component({
@@ -47,7 +47,12 @@ import { ActivatedRoute } from "@angular/router";
       transition("* => *", animate("250ms 0s ease-in-out")),
     ]),
   ],
-  imports: [NgIf, FormsModule, ReactiveFormsModule, NgFor, RestaurantComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RestaurantComponent,
+  ],
 })
 export class RestaurantsComponent implements OnInit {
   route: ActivatedRoute = inject(ActivatedRoute);

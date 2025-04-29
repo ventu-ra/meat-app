@@ -80,3 +80,4 @@ typings/
 .dynamodb/
 node_modules
 .yarn
+dist

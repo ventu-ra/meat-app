@@ -9,36 +9,48 @@ import {
   animate,
   keyframes,
 } from "@angular/animations";
-import { NgIf, NgFor, CurrencyPipe } from "@angular/common";
+import { CurrencyPipe, CommonModule } from "@angular/common";
 import { RouterLink } from "@angular/router";
 @Component({
-    selector: "mt-shopping-cart",
-    templateUrl: "./shopping-cart.component.html",
-    preserveWhitespaces: true,
-    animations: [
-        trigger("row", [
-            state("ready", style({ opacity: 1 })),
-            transition("void => ready", animate("300ms 0s ease-in", keyframes([
-                style({ opacity: 0, transition: "translateX(-30px)", offset: 0 }),
-                style({
-                    opacity: 0.8,
-                    transition: "translateX(10px)",
-                    offset: 0.8,
-                }),
-                style({ opacity: 1, transition: "translateX(0px)", offset: 1 }),
-            ]))),
-            transition("ready => void", animate("300ms 0s ease-out", keyframes([
-                style({ opacity: 1, transition: "translateX(-30px)", offset: 0 }),
-                style({
-                    opacity: 0.8,
-                    transition: "translateX(-10px)",
-                    offset: 0.2,
-                }),
-                style({ opacity: 0, transition: "translateX(30px)", offset: 1 }),
-            ]))),
-        ]),
-    ],
-    imports: [NgIf, NgFor, RouterLink, CurrencyPipe]
+  selector: "mt-shopping-cart",
+  templateUrl: "./shopping-cart.component.html",
+  preserveWhitespaces: true,
+  animations: [
+    trigger("row", [
+      state("ready", style({ opacity: 1 })),
+      transition(
+        "void => ready",
+        animate(
+          "300ms 0s ease-in",
+          keyframes([
+            style({ opacity: 0, transition: "translateX(-30px)", offset: 0 }),
+            style({
+              opacity: 0.8,
+              transition: "translateX(10px)",
+              offset: 0.8,
+            }),
+            style({ opacity: 1, transition: "translateX(0px)", offset: 1 }),
+          ])
+        )
+      ),
+      transition(
+        "ready => void",
+        animate(
+          "300ms 0s ease-out",
+          keyframes([
+            style({ opacity: 1, transition: "translateX(-30px)", offset: 0 }),
+            style({
+              opacity: 0.8,
+              transition: "translateX(-10px)",
+              offset: 0.2,
+            }),
+            style({ opacity: 0, transition: "translateX(30px)", offset: 1 }),
+          ])
+        )
+      ),
+    ]),
+  ],
+  imports: [CommonModule, RouterLink, CurrencyPipe],
 })
 export class ShoppingCartComponent implements OnInit {
   constructor(private shoppingCartService: ShoppingCartServices) {}
@@ -55,10 +67,9 @@ export class ShoppingCartComponent implements OnInit {
     this.shoppingCartService.removeItem(itm);
   }
 
-  clear(){
-    this.shoppingCartService.clear()
+  clear() {
+    this.shoppingCartService.clear();
   }
-
 
   addItem(item: any) {
     this.shoppingCartService.addItem(item);
