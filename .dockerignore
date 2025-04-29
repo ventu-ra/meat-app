@@ -1,0 +1,15 @@
+/node_modules
+
+# Ignore arquivos TypeScript
+*.ts
+
+# Ignore arquivos específicos do Node.js
+node_modules
+npm-debug.log
+yarn-error.log
+.vscode
+.env
+.env.local
+.env.*
+.git
+.gitignore
