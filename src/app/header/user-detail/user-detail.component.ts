@@ -6,10 +6,10 @@ import { NgIf } from "@angular/common";
 import { RouterLinkActive, RouterLink } from "@angular/router";
 
 @Component({
-    selector: "mt-user-detail",
-    templateUrl: "./user-detail.component.html",
-    styleUrls: ["./user-detail.component.css"],
-    imports: [NgIf, RouterLinkActive, RouterLink]
+  selector: "mt-user-detail",
+  templateUrl: "./user-detail.component.html",
+  styleUrls: ["./user-detail.component.css"],
+  imports: [NgIf, RouterLinkActive, RouterLink],
 })
 export class UserDetailComponent implements OnInit {
   constructor(
