@@ -3,7 +3,7 @@ import { LoginComponent } from "./security/login/login.component";
 import { Routes } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
-import { OrderSummaryComponent } from "./order-summary/order-summary.component";
+import { OrderSummaryComponent } from "./order/order-summary/order-summary.component";
 import { RestaurantDetailComponent } from "./restaurant-detail/restaurant-detail.component";
 import { ReviewsComponent } from "./restaurant-detail/reviews/reviews.component";
 import { RestaurantsComponent } from "./restaurants/restaurants.component";
@@ -39,7 +39,7 @@ export const ROUTES: Routes = [
   {
     path: "about",
     loadChildren: () =>
-      import("./about/about.module").then((m) => m.AboutModule),
+      import("./about/about.component").then((m) => m.AboutComponent),
   },
   { path: "**", component: NotFoundComponent },
 ];
