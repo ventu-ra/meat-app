@@ -19,7 +19,13 @@
     "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
-    "preserveWhitespaces": false
+    "preserveWhitespaces": true,
+    "extendedDiagnostics": {
+      "checks": {
+        "invalidBananaInBox": "error"
+      },
+      "defaultCategory": "error"
+    }
   },
   "files": [
     "main.ts",
