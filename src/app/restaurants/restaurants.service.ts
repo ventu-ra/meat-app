@@ -10,7 +10,9 @@ import { MenuItem } from "app/restaurant-detail/menu-item/menu-item.model";
 
 @Injectable()
 export class RestaurantsService {
-  constructor(private http: HttpClient) {}
+
+  private readonly API = 'api/v1/restaurant'
+  constructor(private http: HttpClient) { }
 
   restaurants(search?: string): Observable<Restaurant[]> {
     let params: HttpParams = undefined;
@@ -18,20 +20,20 @@ export class RestaurantsService {
     if (search) {
       params = new HttpParams().append("q", search);
     }
-    return this.http.get<Restaurant[]>(`${MEAT_API}/restaurants`, {
+    return this.http.get<Restaurant[]>(`${this.API}`, {
       params: params,
     });
   }
 
   restaurantById(id: string): Observable<Restaurant> {
-    return this.http.get<Restaurant>(`${MEAT_API}/restaurants/${id}`);
+    return this.http.get<Restaurant>(`${this.API}/${id}`);
   }
 
   reviewsOfRestaurant(id: string): Observable<any> {
-    return this.http.get(`${MEAT_API}/reviews?restaurantId=${id}`);
+    return this.http.get(`${this.API}/reviews?restaurantId=${id}`);
   }
 
   menuOfRestaurant(id: string): Observable<MenuItem[]> {
-    return this.http.get<MenuItem[]>(`${MEAT_API}/menu?restaurantId=${id}`);
+    return this.http.get<MenuItem[]>(`${this.API}/menu?restaurantId=${id}`);
   }
 }
