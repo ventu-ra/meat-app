@@ -127,5 +127,8 @@
     "@schematics/angular:directive": {
       "prefix": "mt"
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
