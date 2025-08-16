@@ -33,7 +33,4 @@ export class MenuComponent {
     this.menuItens = this.restaurantsService.menuOfRestaurant(restaurantId)
       .pipe(map((restaurant: Restaurant) => restaurant.menuItens));
   }
-
-
-
 }

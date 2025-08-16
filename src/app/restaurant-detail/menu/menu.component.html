@@ -1,12 +1,27 @@
 <!-- INÍCIO DO MENU -->
-<div class="col-md-9 col-xs-12">
-  <mt-menu-item
-    *ngFor="let item of menuItens | async"
-    [menuItem]="item"
-    (add)="shoppingCart.addItem(item)">
-  </mt-menu-item>
+<div class="col-md-9 col-xs-12" *ngIf="menuItens | async as items">
+  <ng-container *ngIf="items.length > 0; else noItems">
+    <mt-menu-item *ngFor="let item of items" [menuItem]="item" (add)="shoppingCart.addItem(item)">
+    </mt-menu-item>
+  </ng-container>
+
+  <ng-template #noItems>
+    <section class="box box-solid">
+      <div class="box-header">
+        <i class="fa fa-empty"></i>
+      </div>
+
+      <div class="box-body">
+        <p class="text-center text-muted">
+          Nenhum item disponível no menu no momento.
+        </p>
+      </div>
+    </section>
+  </ng-template>
 </div>
+
 <div class="col-md-3 col-xs-12">
   <mt-shopping-cart #shoppingCart></mt-shopping-cart>
 </div>
+
 <!-- FIM DO MENU -->
