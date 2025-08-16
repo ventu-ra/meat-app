@@ -6,7 +6,6 @@ import { Observable } from "rxjs";
 
 import { Restaurant } from "./restaurant/restaurant.model";
 //import { ErrorHandler } from "app/app.error-handler";
-import { MenuItem } from "app/restaurant-detail/menu-item/menu-item.model";
 
 @Injectable()
 export class RestaurantsService {
