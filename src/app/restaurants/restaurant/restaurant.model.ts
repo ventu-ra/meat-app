@@ -1,3 +1,5 @@
+import { MenuItem } from "app/restaurant-detail/menu-item/menu-item.model";
+
 export interface Restaurant {
   id: string;
   name: string;
@@ -7,4 +9,5 @@ export interface Restaurant {
   imagePath: string;
   about?: string;
   hours?: string;
+  menuItens?: MenuItem[];
 }
