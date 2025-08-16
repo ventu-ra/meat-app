@@ -6,6 +6,8 @@ import { MenuItem } from "../menu-item/menu-item.model";
 import { NgFor, AsyncPipe, CommonModule } from "@angular/common";
 import { MenuItemComponent } from "../menu-item/menu-item.component";
 import { ShoppingCartComponent } from "../shopping-cart/shopping-cart.component";
+import { Restaurant } from "app/restaurants/restaurant/restaurant.model";
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: "mt-menu",
@@ -14,19 +16,24 @@ import { ShoppingCartComponent } from "../shopping-cart/shopping-cart.component"
     CommonModule,
     MenuItemComponent,
     ShoppingCartComponent,
-    AsyncPipe,
     RouterModule,
   ],
 })
 export class MenuComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
-  menu: Observable<MenuItem[]>;
+  restaurant: Observable<Restaurant>;
 
   restaurantsService: RestaurantsService = inject(RestaurantsService);
 
+  menuItens: Observable<MenuItem[]>;
+
   constructor() {
-    this.menu = this.restaurantsService.menuOfRestaurant(
-      this.route.parent.snapshot.params["id"]
-    );
+    const restaurantId = this.route.parent?.snapshot.params["id"];
+
+    this.menuItens = this.restaurantsService.menuOfRestaurant(restaurantId)
+      .pipe(map((restaurant: Restaurant) => restaurant.menuItens));
   }
+
+
+
 }

@@ -33,7 +33,7 @@ export class RestaurantsService {
     return this.http.get(`${this.API}/reviews?restaurantId=${id}`);
   }
 
-  menuOfRestaurant(id: string): Observable<MenuItem[]> {
-    return this.http.get<MenuItem[]>(`${this.API}/menu?restaurantId=${id}`);
+  menuOfRestaurant(id: string): Observable<Restaurant> {
+    return this.http.get<Restaurant>(`${this.API}/${id}`);
   }
 }
