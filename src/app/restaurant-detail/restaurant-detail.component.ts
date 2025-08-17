@@ -22,7 +22,7 @@ export class RestaurantDetailComponent {
   constructor() {
     const restaurantId = this.route.snapshot.params["id"];
     this.restaurantService
-      .restaurantById(restaurantId)
+      .getRestaurantDetails(restaurantId)
       .subscribe((restaurant) => (this.restaurant = restaurant));
   }
 }

@@ -10,4 +10,13 @@ export interface Restaurant {
   about?: string;
   hours?: string;
   menuItens?: MenuItem[];
+  reviews?: Reviews[]
+}
+
+export interface Reviews {
+  name: string,
+  date: string,
+  rating: number,
+  comments: string
+
 }

@@ -24,15 +24,7 @@ export class RestaurantsService {
     });
   }
 
-  restaurantById(id: string): Observable<Restaurant> {
-    return this.http.get<Restaurant>(`${this.API}/${id}`);
-  }
-
-  reviewsOfRestaurant(id: string): Observable<any> {
-    return this.http.get(`${this.API}/reviews?restaurantId=${id}`);
-  }
-
-  menuOfRestaurant(id: string): Observable<Restaurant> {
+  getRestaurantDetails(id: string): Observable<Restaurant> {
     return this.http.get<Restaurant>(`${this.API}/${id}`);
   }
 }

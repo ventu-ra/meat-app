@@ -30,7 +30,7 @@ export class MenuComponent {
   constructor() {
     const restaurantId = this.route.parent?.snapshot.params["id"];
 
-    this.menuItens = this.restaurantsService.menuOfRestaurant(restaurantId)
+    this.menuItens = this.restaurantsService.getRestaurantDetails(restaurantId)
       .pipe(map((restaurant: Restaurant) => restaurant.menuItens));
   }
 }
