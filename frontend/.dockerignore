@@ -13,10 +13,8 @@ yarn-error.log
 .env.*
 .git
 .gitignore
-dist
 node_modules
-dist
 .git
-.vscode
-.DS_Store
-logs
+.gitignore
+*.md
+dist

@@ -1,0 +1,31 @@
+services:
+  meatDB:
+    image: 'postgres:17-alpine'
+    container_name: meatDB
+    # network_mode: "host"
+    restart: always
+    environment:
+      - 'POSTGRES_DB=meatDB'
+      - 'POSTGRES_PASSWORD=postgres'
+      - 'POSTGRES_USER=postgres'
+    ports:
+      - 5432:5432
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    restart: always
+    depends_on:
+      - meatDB
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@localhost.com
+      PGADMIN_DEFAULT_PASSWORD: 123
+    ports:
+      - 8081:80
+    # volumes:
+    #   - ./data/pgadmin:/var/lib/pgadmin
+
+networks:
+  default:
+    name: local-network
+    external: true
