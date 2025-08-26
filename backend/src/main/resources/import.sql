@@ -1,4 +1,4 @@
--- Active: 1755448468961@@172.18.0.2@5432@meatDB
+-- Active: 1756224658345@@172.18.0.2@5432@meatDB
 
 -- CREATE TABLE IF NOT EXISTS tb_restaurant (
 --     id bigint GENERATED ALWAYS AS IDENTITY NOT NULL,
@@ -88,8 +88,6 @@ VALUES (
         'A doceira com mais tradição da cidade',
         'Funciona de segunda à sábado, de 8h às 23h'
     );
-
-SELECT * FROM restaurant;
 
 INSERT INTO
     "tb_menus" (
