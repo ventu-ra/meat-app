@@ -7,19 +7,9 @@ services:
     ports:
       - "3000:80" # Mapeando a porta 80 do container para 3000 no host
     networks:
-      - meat_network
-
-  backend:
-    image: vimagick/json-server
-    command: -h 0.0.0.0 -p 3001 -w db.json
-    ports:
-    - "3001:3001"
-    volumes:
-    - ./data:/data
-    restart: always
-    networks:
-    - meat_network
+      - local-network
 
 networks:
-  meat_network:
-    driver: bridge
+  default:
+    name: local-network
+    external: true

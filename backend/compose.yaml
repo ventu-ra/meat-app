@@ -11,6 +11,14 @@ services:
     ports:
       - 5432:5432
 
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+    container_name: meat_frontend
+    ports:
+      - "3000:80" # Mapeando a porta 80 do container para 3000 no host
+
   pgadmin:
     image: dpage/pgadmin4:latest
     container_name: pgadmin
