@@ -15,7 +15,7 @@ import { NgFor } from "@angular/common";
   ],
   imports: [NgFor]
 })
-export class RadioComponent implements OnInit, ControlValueAccessor {
+export class RadioComponent implements ControlValueAccessor {
   readonly options = input<RadioOption[]>(undefined);
 
   value: any;
@@ -25,8 +25,6 @@ export class RadioComponent implements OnInit, ControlValueAccessor {
   isDisabled: boolean = false;
 
   constructor() { }
-
-  ngOnInit() { }
 
   setValue(value: any) {
     if (this.isDisabled) return;
