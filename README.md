@@ -6,20 +6,20 @@ A aplicação simula um sistema de pedidos para restaurantes, integrando um back
 
 ---
 
-## 🎯 Finalidade do Projeto
+## 🎯 Objetivo do Projeto
 
-O objetivo principal deste projeto é:
+- Explorar o framework **Angular**: componentes, serviços, rotas e integrações.
+- Criar um **backend real** com Spring Boot.
+- Aprender sobre **Docker**: contêineres para backend, frontend e banco de dados.
+- Simular operações CRUD via APIs REST.
 
-- **Explorar o framework Angular:** criando componentes, serviços, rotas e integrações.
-- **Simular um backend com JSON Server:** utilizando APIs REST para manipular dados.
-- **Aprender sobre Docker:** criando contêineres para facilitar o deploy e a execução do projeto.
+---
 
 ## 📂 Estrutura do Projeto
 
-- **Frontend:** Angular para construção da interface e comunicação com APIs.
-- **Backend Fake:** JSON Server para simular operações CRUD.
-- **Banco de Dados:** Configuração no arquivo db.json.
-- **Docker:** Configuração de contêiner para execução simplificada.
+- **frontend/**: Angular
+- **backend/**: Spring Boot
+- **db.json**: dados iniciais para backend fake (se necessário)
 
 🚀 Instruções para Executar com Docker
 
