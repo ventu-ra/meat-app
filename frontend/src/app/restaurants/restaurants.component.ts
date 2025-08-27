@@ -1,8 +1,8 @@
-import { Component, inject, Input, OnInit } from "@angular/core";
+import { Component, inject, OnInit } from "@angular/core";
 import { Restaurant } from "./restaurant/restaurant.model";
 import { RestaurantsService } from "./restaurants.service";
 
-import { Observable, from } from "rxjs";
+import { from } from "rxjs";
 import {
   switchMap,
   tap,
