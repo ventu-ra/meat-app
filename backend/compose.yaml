@@ -19,6 +19,20 @@ services:
     ports:
       - "3000:80" # Mapeando a porta 80 do container para 3000 no host
 
+  backend:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: meat_backend
+    depends_on:
+      - meatDB
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://meatDB:5432/meatDB
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+    ports:
+      - "8082:8080"
+
   pgadmin:
     image: dpage/pgadmin4:latest
     container_name: pgadmin
@@ -36,4 +50,4 @@ services:
 networks:
   default:
     name: local-network
-    external: true
+    driver: bridge
