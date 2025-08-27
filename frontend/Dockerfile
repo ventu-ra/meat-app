@@ -19,14 +19,18 @@ COPY . .
 # Build Angular app para produção
 RUN pnpm run ng build --configuration production
 
-# Etapa final usando nginx alpine
-FROM nginx:alpine
+
+# Etapa final usando nginx
+FROM nginx:alpine-slim
 
 # Remove arquivos default do nginx
 RUN rm -rf /usr/share/nginx/html/*
 
-# Copia os artefatos da build
+# Copia os artefatos da build Angular
 COPY --from=builder /app/dist/browser/ /usr/share/nginx/html
+
+# Copia configuração customizada do Nginx
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expondo a porta
 EXPOSE 80
