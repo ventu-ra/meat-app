@@ -1,4 +1,3 @@
-
 # Meat App - Projeto Personalizado
 
 Este projeto foi baseado no projeto **Meat App Starter**, utilizado no curso de Angular da [**Cod3r Cursos**](https://github.com/cod3rcursos/meat-app-starter) , e expandido para incluir novos recursos e configurações.
@@ -10,6 +9,7 @@ A aplicação simula um sistema de pedidos para restaurantes, integrando um back
 ## 🎯 Finalidade do Projeto
 
 O objetivo principal deste projeto é:
+
 - **Explorar o framework Angular:** criando componentes, serviços, rotas e integrações.
 - **Simular um backend com JSON Server:** utilizando APIs REST para manipular dados.
 - **Aprender sobre Docker:** criando contêineres para facilitar o deploy e a execução do projeto.
@@ -23,16 +23,16 @@ O objetivo principal deste projeto é:
 
 🚀 Instruções para Executar com Docker
 
-1.	Clone este repositório:
+1.  Clone este repositório:
 
-		git clone https://github.com/ventu-ra/meat-app && cd meat-app
+    git clone https://github.com/ventu-ra/meat-app && cd meat-app
 
-2. 🐳 Construa a imagem Docker:
+2.  Depois dê permissão de execução:
 
-		docker compose build
+    chmod +x start-backend.sh
 
-3. Execute o contêiner:
+3.  Execute:
 
-		docker compose up -d
+    ./start-backend.sh
 
 - **Frontend:** [Demo](https://ventu-ra.github.io/meat-app)
