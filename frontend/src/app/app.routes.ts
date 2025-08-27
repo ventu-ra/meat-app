@@ -6,6 +6,7 @@ import { OrderSummaryComponent } from "./order/order-summary/order-summary.compo
 import { RestaurantDetailComponent } from "./restaurant-detail/restaurant-detail.component";
 import { ReviewsComponent } from "./restaurant-detail/reviews/reviews.component";
 import { RestaurantsComponent } from "./restaurants/restaurants.component";
+import { AboutComponent } from "./about/about.component";
 
 export const ROUTES: Routes = [
   { path: "", component: HomeComponent },
@@ -36,9 +37,7 @@ export const ROUTES: Routes = [
   },
   { path: "order-summary", component: OrderSummaryComponent },
   {
-    path: "about",
-    loadChildren: () =>
-      import("./about/about.component").then((m) => m.AboutComponent),
+    path: "about", component: AboutComponent
   },
   { path: "**", component: NotFoundComponent },
 ];
