@@ -25,7 +25,6 @@ public record OrderDTO(
         order.getPaymentOption(),
         order.getOrderItems().stream()
             .map(OrderItemDTO::from)
-            .collect(Collectors.toList())
-    );
+            .collect(Collectors.toList()));
   }
 }
