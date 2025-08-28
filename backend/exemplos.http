@@ -1,0 +1,41 @@
+POST http://localhost:8080/api/v1/checkout
+Content-Type: application/json
+
+{
+  "name": "João Silva",
+  "email": "joao.silva@example.com",
+  "address": "Rua das Flores, 123",
+  "number": 123,
+  "optionalAddress": "Apto 45B",
+  "paymentOption": "CREDIT_CARD",
+  "orderItems": [
+    {
+      "menuId": 34,
+      "quantity": 2,
+      "price": 25.0
+    },
+    {
+      "menuId": 2,
+      "quantity": 1,
+      "price": 15.5
+    }
+  ]
+}
+
+
+###
+
+POST http://localhost:8080/api/v1/checkout
+Content-Type: application/json
+
+{
+  "name": "",
+  "email": "",
+  "address": "",
+  "number": 0,
+  "optionalAddress": "",
+  "paymentOption": "",
+  "orderItems": [
+
+  ]
+}
