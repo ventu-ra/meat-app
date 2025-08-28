@@ -20,6 +20,7 @@ public class Menu {
   @Column(name = "image_path")
   private String imagePath;
 
+   @Column(nullable = false, unique = true)
   private String name;
 
   @Column(length = 1000)
