@@ -13,14 +13,14 @@ public record OrderDTO(
     String number,
     String optionalAddress,
     String paymentOption,
-    List<OrderItemDTO> orderItems) { // <-- alterado para orderItems
+    List<OrderItemDTO> orderItems) {
   public static OrderDTO from(Order order) {
     return new OrderDTO(
         order.getId(),
         order.getName(),
         order.getEmail(),
         order.getAddress(),
-        String.valueOf(order.getNumber()), // <-- converte para String se necessário
+        String.valueOf(order.getNumber()),
         order.getOptionalAddress(),
         order.getPaymentOption(),
         order.getOrderItems().stream()
