@@ -9,9 +9,8 @@ import { Restaurant } from "./restaurant/restaurant.model";
 
 @Injectable()
 export class RestaurantsService {
-
-  private readonly API = 'api/v1/restaurant'
-  constructor(private http: HttpClient) { }
+  private readonly API = "api/v1/restaurant";
+  constructor(private http: HttpClient) {}
 
   restaurants(search?: string): Observable<Restaurant[]> {
     let params: HttpParams = undefined;
@@ -19,12 +18,12 @@ export class RestaurantsService {
     if (search) {
       params = new HttpParams().append("q", search);
     }
-    return this.http.get<Restaurant[]>(`${MEAT_API}`, {
+    return this.http.get<Restaurant[]>(`${MEAT_API}/restaurant`, {
       params: params,
     });
   }
 
   getRestaurantDetails(id: string): Observable<Restaurant> {
-    return this.http.get<Restaurant>(`${MEAT_API}/${id}`);
+    return this.http.get<Restaurant>(`${MEAT_API}/restaurant/${id}`);
   }
 }

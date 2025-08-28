@@ -7,7 +7,15 @@ import { OrderService } from "./order.service";
 
 import { tap } from "rxjs/operators";
 
-import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  AbstractControl,
+  FormControl,
+  FormsModule,
+  ReactiveFormsModule,
+} from "@angular/forms";
 import { NgIf } from "@angular/common";
 import { InputComponent } from "../shared/input/input.component";
 import { OrderItemsComponent } from "./order-items/order-items.component";
@@ -15,12 +23,22 @@ import { RadioComponent } from "../shared/radio/radio.component";
 import { DeliveryCostsComponent } from "./delivery-costs/delivery-costs.component";
 
 @Component({
-    selector: "mt-order",
-    templateUrl: "./order.component.html",
-    imports: [FormsModule, ReactiveFormsModule, NgIf, InputComponent, OrderItemsComponent, RadioComponent, DeliveryCostsComponent, RouterLink]
+  selector: "mt-order",
+  templateUrl: "./order.component.html",
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    NgIf,
+    InputComponent,
+    OrderItemsComponent,
+    RadioComponent,
+    DeliveryCostsComponent,
+    RouterLink,
+  ],
 })
 export class OrderComponent implements OnInit {
-  emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+  emailPattern =
+    /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
   numberPattern = /^[0-9]*$/;
 
   orderForm: FormGroup;
@@ -111,6 +129,7 @@ export class OrderComponent implements OnInit {
     order.orderItems = this.cartItems().map(
       (item: CartItem) => new OrderItem(item.quantity, item.menuItem.id)
     );
+    console.log(order);
 
     this.orderService
       .checkOrder(order)
@@ -124,6 +143,5 @@ export class OrderComponent implements OnInit {
         console.log(`Compra concluída: ${orderId}`);
         this.orderService.clear();
       });
-    // console.log(order);
   }
 }
