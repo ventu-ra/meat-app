@@ -1,3 +1,5 @@
-nodejs latest
-bun  latest
-pnpm latest
+nodejs lts
+bun   latest
+pnpm  10
+java  21
+maven latest
