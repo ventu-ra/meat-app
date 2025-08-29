@@ -1,24 +1,30 @@
-# Etapa 1: build da aplicação
-FROM maven:3.9.8-eclipse-temurin-21 AS builder
+# ===== Build Stage =====
+FROM bellsoft/liberica-runtime-container:jdk-all-21-musl AS build
+WORKDIR /app/backend
 
-WORKDIR /app
-
-# Copia o pom.xml e baixa as dependências em cache
-COPY pom.xml .
-RUN mvn dependency:go-offline -B
-
-# Copia o código e gera o JAR
+COPY mvnw pom.xml ./
+COPY .mvn ./.mvn
 COPY src ./src
-RUN mvn clean package -DskipTests
 
-# Etapa 2: imagem final, mais leve
-FROM eclipse-temurin:21-jre-alpine
+RUN chmod +x mvnw && ./mvnw clean package -DskipTests
 
+# Cria um runtime mínimo com módulos necessários ao Spring Boot
+# Inclui java.desktop para java.beans (PropertyEditorSupport) e TLS (jdk.crypto.ec)
+RUN jlink --module-path $JAVA_HOME/jmods \
+  --add-modules \
+java.base,java.logging,java.sql,java.xml,java.naming,java.management,java.instrument,jdk.management,jdk.unsupported,java.desktop,jdk.crypto.ec,java.security.jgss \
+  --compress=2 --strip-debug --no-header-files --no-man-pages \
+  --output /app/jlink-runtime
+
+# ===== Runtime Stage =====
+FROM alpine:3.18
 WORKDIR /app
 
-# Copia o JAR da etapa de build
-COPY --from=builder /app/target/*.jar app.jar
+# Atualiza repositórios e instala certificados
+RUN apk update && apk add --no-cache ca-certificates
+
+COPY --from=build /app/jlink-runtime /jlink-runtime
+COPY --from=build /app/backend/target/*.jar ./app.jar
 
 EXPOSE 8082
-
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["/jlink-runtime/bin/java", "-jar", "/app/app.jar"]
