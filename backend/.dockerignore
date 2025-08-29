@@ -1,0 +1,35 @@
+target/
+.git
+*.log
+*.class
+*.jar
+*.war
+*.iml
+.idea/
+.vscode/
+node_modules/
+.env
+.DS_Store
+ # Maven build
+target/
+!.mvn/wrapper/maven-wrapper.jar  # se usar wrapper, mantenha
+!.mvn/wrapper/maven-wrapper.properties
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+*.swp
+
+# IDEs e editor
+.vscode/
+.idea/
+*.iml
+
+# Git
+.git/
+.gitignore
+
+# Outros
+*.md
+*.yaml
+*.yml
