@@ -90,22 +90,6 @@ VALUES (
     );
 
 INSERT INTO
-    "tb_menus" (
-        "image_path",
-        "name",
-        "price",
-        "restaurant_id",
-        "description"
-    )
-VALUES (
-        'assets/img/foods/cupcake.png',
-        'Cup Cake',
-        8.7,
-        1,
-        'Cup Cake recheado de Doce de Leite'
-    );
-
-INSERT INTO
     tb_menus (
         image_path,
         name,
