@@ -1,24 +1,23 @@
 services:
   meatDB:
-    image: postgres:17-alpine
+    image: 'postgres:17-alpine'
     container_name: meatDB
+    # network_mode: "host"
     restart: always
     environment:
-      POSTGRES_DB: meatDB
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_USER: postgres
-      PGDATA: /var/lib/postgresql/data/pgdata
-      LOG_DESTINATION: stderr
-      LOGGING_COLLECTOR: "off"
+      - 'POSTGRES_DB=meatDB'
+      - 'POSTGRES_PASSWORD=postgres'
+      - 'POSTGRES_USER=postgres'
     ports:
-      - "5432:5432"
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d meatDB"]
-      interval: 5s
-      timeout: 5s
-      retries: 20
-    volumes:
-      - meatdb_data:/var/lib/postgresql/data
+      - 5432:5432
+
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+    container_name: meat_frontend
+    ports:
+      - "3000:80" # Mapeando a porta 80 do container para 3000 no host
 
   backend:
     build:
@@ -26,48 +25,29 @@ services:
       dockerfile: Dockerfile
     container_name: meat_backend
     depends_on:
-      meatDB:
-        condition: service_healthy
+      - meatDB
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://meatDB:5432/meatDB
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: postgres
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://meatDB:5432/meatDB
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
     ports:
       - "8082:8080"
-    networks:
-      default:
-        aliases:
-          - backend
-
-  frontend:
-    build:
-      context: ../frontend
-    container_name: meat_frontend
-    depends_on:
-      - backend
-    ports:
-      - "3000:80"
 
   pgadmin:
-    image: thajeztah/pgadmin4:latest
+    image: dpage/pgadmin4:latest
     container_name: pgadmin
     restart: always
     depends_on:
-      meatDB:
-        condition: service_healthy
+      - meatDB
     environment:
       PGADMIN_DEFAULT_EMAIL: user@localhost.com
-      PGADMIN_DEFAULT_PASSWORD: "123"
+      PGADMIN_DEFAULT_PASSWORD: 123
     ports:
-      - "8081:80"
-    volumes:
-      - pgadmin_data:/var/lib/pgadmin
+      - 8081:80
+    # volumes:
+    #   - ./data/pgadmin:/var/lib/pgadmin
 
 networks:
   default:
     name: local-network
     driver: bridge
-
-volumes:
-  meatdb_data:
-  pgadmin_data:
