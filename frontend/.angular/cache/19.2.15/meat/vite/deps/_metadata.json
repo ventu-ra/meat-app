@@ -1,67 +1,67 @@
 {
-  "hash": "cd2a6ccd",
-  "configHash": "20fdafb0",
+  "hash": "237f8459",
+  "configHash": "c8e52417",
   "lockfileHash": "e4639201",
-  "browserHash": "b308d7ca",
+  "browserHash": "f1bbf03a",
   "optimized": {
     "@angular/animations": {
       "src": "../../../../../../node_modules/.pnpm/@angular+animations@19.2.8_@angular+common@19.2.8_@angular+core@19.2.8_rxjs@6.6.7_zone._86880b36140ca1c2653c78e55e62f827/node_modules/@angular/animations/fesm2022/animations.mjs",
       "file": "@angular_animations.js",
-      "fileHash": "13a4e2a0",
+      "fileHash": "d6305570",
       "needsInterop": false
     },
     "@angular/common": {
       "src": "../../../../../../node_modules/.pnpm/@angular+common@19.2.8_@angular+core@19.2.8_rxjs@6.6.7_zone.js@0.15.1__rxjs@6.6.7/node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "fe8e821d",
+      "fileHash": "fa4b8387",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../../node_modules/.pnpm/@angular+common@19.2.8_@angular+core@19.2.8_rxjs@6.6.7_zone.js@0.15.1__rxjs@6.6.7/node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "d2193760",
+      "fileHash": "33d6be20",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../../node_modules/.pnpm/@angular+core@19.2.8_rxjs@6.6.7_zone.js@0.15.1/node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "e15a8ac0",
+      "fileHash": "60486b99",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../../node_modules/.pnpm/@angular+forms@19.2.8_@angular+common@19.2.8_@angular+core@19.2.8_rxjs@6.6.7_zone.js@0._da1d5958a9911b9f7188abc8cfa9a590/node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "006a6e38",
+      "fileHash": "46b7025a",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/.pnpm/@angular+platform-browser@19.2.8_@angular+animations@19.2.8_@angular+common@19.2.8_@ang_3e77171e43be10a94e7a38a8d02136c1/node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "43ab6ba4",
+      "fileHash": "79e8667b",
       "needsInterop": false
     },
     "@angular/platform-browser/animations": {
       "src": "../../../../../../node_modules/.pnpm/@angular+platform-browser@19.2.8_@angular+animations@19.2.8_@angular+common@19.2.8_@ang_3e77171e43be10a94e7a38a8d02136c1/node_modules/@angular/platform-browser/fesm2022/animations.mjs",
       "file": "@angular_platform-browser_animations.js",
-      "fileHash": "9384b0f6",
+      "fileHash": "a34f9513",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/.pnpm/@angular+router@19.2.8_@angular+common@19.2.8_@angular+core@19.2.8_rxjs@6.6.7_zone.js@0_c1a81bcb821df24fb1e8cf57bb9deca0/node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "98383fc5",
+      "fileHash": "f1a8244e",
       "needsInterop": false
     },
     "rxjs": {
       "src": "../../../../../../node_modules/.pnpm/rxjs@6.6.7/node_modules/rxjs/_esm5/index.js",
       "file": "rxjs.js",
-      "fileHash": "f2122351",
+      "fileHash": "7784989a",
       "needsInterop": false
     },
     "rxjs/operators": {
       "src": "../../../../../../node_modules/.pnpm/rxjs@6.6.7/node_modules/rxjs/_esm5/operators/index.js",
       "file": "rxjs_operators.js",
-      "fileHash": "0ea474ca",
+      "fileHash": "97526ed9",
       "needsInterop": false
     }
   },
@@ -87,11 +87,11 @@
     "chunk-QPOYJYPQ": {
       "file": "chunk-QPOYJYPQ.js"
     },
-    "chunk-MZJUFL2B": {
-      "file": "chunk-MZJUFL2B.js"
-    },
     "chunk-GLOCSHMG": {
       "file": "chunk-GLOCSHMG.js"
+    },
+    "chunk-MZJUFL2B": {
+      "file": "chunk-MZJUFL2B.js"
     },
     "chunk-D77PI7IO": {
       "file": "chunk-D77PI7IO.js"

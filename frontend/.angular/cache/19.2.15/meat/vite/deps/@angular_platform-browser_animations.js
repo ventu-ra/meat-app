@@ -30,8 +30,8 @@ import {
   ɵɵdefineNgModule,
   ɵɵinject
 } from "./chunk-QPOYJYPQ.js";
-import "./chunk-MZJUFL2B.js";
 import "./chunk-GLOCSHMG.js";
+import "./chunk-MZJUFL2B.js";
 import {
   __objRest,
   __spreadValues

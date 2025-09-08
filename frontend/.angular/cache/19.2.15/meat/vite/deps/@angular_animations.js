@@ -34,8 +34,8 @@ import {
   ɵɵdefineInjectable,
   ɵɵinject
 } from "./chunk-QPOYJYPQ.js";
-import "./chunk-MZJUFL2B.js";
 import "./chunk-GLOCSHMG.js";
+import "./chunk-MZJUFL2B.js";
 import "./chunk-D77PI7IO.js";
 
 // node_modules/.pnpm/@angular+animations@19.2.8_@angular+common@19.2.8_@angular+core@19.2.8_rxjs@6.6.7_zone._86880b36140ca1c2653c78e55e62f827/node_modules/@angular/animations/fesm2022/animations.mjs
