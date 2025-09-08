@@ -3,7 +3,7 @@ package dev.ventura.meat_backend_with_spring.dto;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import dev.ventura.meat_backend_with_spring.model.Restaurant;
+import dev.ventura.meat_backend_with_spring.entity.Restaurant;
 
 public record RestaurantDetailsDTO(
     Long id,

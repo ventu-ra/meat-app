@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import dev.ventura.meat_backend_with_spring.model.Order;
-import dev.ventura.meat_backend_with_spring.model.OrderItem;
 import dev.ventura.meat_backend_with_spring.dto.OrderDTO;
-import dev.ventura.meat_backend_with_spring.model.Menu;
+import dev.ventura.meat_backend_with_spring.entity.Menu;
+import dev.ventura.meat_backend_with_spring.entity.Order;
+import dev.ventura.meat_backend_with_spring.entity.OrderItem;
 import dev.ventura.meat_backend_with_spring.repository.CheckoutRepository;
 import dev.ventura.meat_backend_with_spring.repository.MenuRepository;
 

@@ -1,6 +1,6 @@
 package dev.ventura.meat_backend_with_spring.dto;
 
-import dev.ventura.meat_backend_with_spring.model.Restaurant;
+import dev.ventura.meat_backend_with_spring.entity.Restaurant;
 
 public record RestaurantDTO(Long id, String name, String category, double rating, String deliveryEstimate,
         String imagePath) {

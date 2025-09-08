@@ -1,6 +1,6 @@
 package dev.ventura.meat_backend_with_spring.dto;
 
-import dev.ventura.meat_backend_with_spring.model.OrderItem;
+import dev.ventura.meat_backend_with_spring.entity.OrderItem;
 
 public record OrderItemDTO(Long menuId, int quantity) {
 

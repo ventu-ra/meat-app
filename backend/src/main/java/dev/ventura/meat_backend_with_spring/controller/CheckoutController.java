@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.ventura.meat_backend_with_spring.dto.OrderDTO;
-import dev.ventura.meat_backend_with_spring.model.Order;
+import dev.ventura.meat_backend_with_spring.entity.Order;
 import dev.ventura.meat_backend_with_spring.service.CheckoutService;
 
 @RestController

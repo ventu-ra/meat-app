@@ -1,4 +1,4 @@
-package dev.ventura.meat_backend_with_spring.model;
+package dev.ventura.meat_backend_with_spring.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

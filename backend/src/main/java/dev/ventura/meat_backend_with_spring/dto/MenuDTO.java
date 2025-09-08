@@ -1,6 +1,6 @@
 package dev.ventura.meat_backend_with_spring.dto;
 
-import dev.ventura.meat_backend_with_spring.model.Menu;
+import dev.ventura.meat_backend_with_spring.entity.Menu;
 
 public record MenuDTO(Long id,
     String name,

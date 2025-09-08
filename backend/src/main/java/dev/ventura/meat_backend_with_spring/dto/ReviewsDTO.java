@@ -2,7 +2,7 @@ package dev.ventura.meat_backend_with_spring.dto;
 
 import java.time.LocalDateTime;
 
-import dev.ventura.meat_backend_with_spring.model.Reviews;
+import dev.ventura.meat_backend_with_spring.entity.Reviews;
 
 public record ReviewsDTO(
     String name,
