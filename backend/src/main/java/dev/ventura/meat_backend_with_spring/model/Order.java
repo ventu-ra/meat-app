@@ -37,9 +37,11 @@ public class Order {
   @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<OrderItem> orderItems;
 
-  public Order() {}
+  public Order() {
+  }
 
-  public Order(String name, String email, String address, Integer number, String optionalAddress, String paymentOption, List<OrderItem> orderItems) {
+  public Order(String name, String email, String address, Integer number, String optionalAddress, String paymentOption,
+      List<OrderItem> orderItems) {
     this.name = name;
     this.email = email;
     this.address = address;
@@ -51,10 +53,6 @@ public class Order {
 
   public Long getId() {
     return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
   }
 
   public String getName() {
@@ -112,6 +110,5 @@ public class Order {
   public void setOrderItems(List<OrderItem> orderItems) {
     this.orderItems = orderItems;
   }
-
 
 }

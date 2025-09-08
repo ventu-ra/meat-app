@@ -20,7 +20,7 @@ public class Menu {
   @Column(name = "image_path")
   private String imagePath;
 
-   @Column(nullable = false, unique = true)
+  @Column(nullable = false, unique = true)
   private String name;
 
   @Column(length = 1000)
@@ -54,10 +54,6 @@ public class Menu {
 
   public Long getId() {
     return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
   }
 
   public String getImagePath() {
