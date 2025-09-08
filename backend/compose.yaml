@@ -2,50 +2,52 @@ services:
   meatDB:
     image: 'postgres:17-alpine'
     container_name: meatDB
-    # network_mode: "host"
     restart: always
     environment:
-      - 'POSTGRES_DB=meatDB'
-      - 'POSTGRES_PASSWORD=postgres'
-      - 'POSTGRES_USER=postgres'
+      - POSTGRES_DB=meatDB
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
     ports:
-      - 5432:5432
+      - "5432:5432"
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
 
-  frontend:
-    build:
-      context: ../frontend
-      dockerfile: Dockerfile
-    container_name: meat_frontend
-    ports:
-      - "3000:80" # Mapeando a porta 80 do container para 3000 no host
 
-  backend:
-    build:
-      context: ./
-      dockerfile: Dockerfile
-    container_name: meat_backend
-    depends_on:
-      - meatDB
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://meatDB:5432/meatDB
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=postgres
-    ports:
-      - "8082:8080"
+  # frontend:
+  #   build:
+  #     context: ../frontend
+  #     dockerfile: Dockerfile
+  #   container_name: meat_frontend
+  #   ports:
+  #     - "3000:80" # Mapeando a porta 80 do container para 3000 no host
 
-  pgadmin:
-    image: dpage/pgadmin4:latest
-    container_name: pgadmin
-    restart: always
-    depends_on:
-      - meatDB
-    environment:
-      PGADMIN_DEFAULT_EMAIL: user@localhost.com
-      PGADMIN_DEFAULT_PASSWORD: 123
-    ports:
-      - 8081:80
-    # volumes:
-    #   - ./data/pgadmin:/var/lib/pgadmin
+  # backend:
+  #   build:
+  #     context: ./
+  #     dockerfile: Dockerfile
+  #   container_name: meat_backend
+  #   depends_on:
+  #     - meatDB
+  #   environment:
+  #     - SPRING_DATASOURCE_URL=jdbc:postgresql://meatDB:5432/meatDB
+  #     - SPRING_DATASOURCE_USERNAME=postgres
+  #     - SPRING_DATASOURCE_PASSWORD=postgres
+  #   ports:
+  #     - "8082:8080"
+
+  # pgadmin:
+  #   image: dpage/pgadmin4:latest
+  #   container_name: pgadmin
+  #   restart: always
+  #   depends_on:
+  #     - meatDB
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: user@localhost.com
+  #     PGADMIN_DEFAULT_PASSWORD: 123
+  #   ports:
+  #     - 8081:80
+  #   # volumes:
+  #   #   - ./data/pgadmin:/var/lib/pgadmin
 
 networks:
   default:
